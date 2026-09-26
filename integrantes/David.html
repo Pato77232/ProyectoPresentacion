@@ -8,7 +8,9 @@
   <title>David Cuenca · Portfolio</title>
 
   <!-- ============ FUENTES (Google Fonts) ============ -->
- 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- ============ ESTILOS ============ -->
   <link rel="stylesheet" href="/css/David.css" />
@@ -40,14 +42,33 @@
       <div class="container hero-grid">
 
         <div class="hero-text">
-          
+          <p class="badge">🦘 ¡Hola! Disponible para nuevos proyectos y aprendizaje</p>
 
+          <h1 class="hero-title">
+            Hola, soy<br />
+
+            <span class="text-gradient">David Cuenca</span>
+          </h1>
+
+          <p class="hero-typed">
+            <span class="hero-typed-dash">—</span>
+            <span id="typed"></span><span class="caret" id="caret"></span>
+          </p>
+
+          <p class="hero-desc">
+            Estudiante de Ingeniería de Software, interesado por aprender muchas cosas, 
+            amante de la tecnología y la computación.
+          </p>
           
           <div class="hero-actions">
-            
+            <a href="#proyecto" class="btn btn-primary shine-btn">
+              <span class="btn-emoji">🏍️</span> Jugar Moto Extreme
+            </a>
             <div class="socials">
-              
-
+              <a href="#" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn">🐙</a>
+              <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn">💼</a>
+              <a href="#" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn">📷</a>
+              <a href="mailto:tuemail@ejemplo.com" aria-label="Correo" class="social-btn">✉️</a>
             </div>
           </div>
         </div>
@@ -56,12 +77,21 @@
           <div class="avatar-card glass">
             <div class="avatar-glow"></div>
             <div class="avatar-frame">
+              <img src="/images/fotoDavid.jpeg" alt="Foto de David Cuenca" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:'DC'}))" />
             </div>
-            
+
+            <h3 class="avatar-name">David Cuenca</h3>
+            <p class="avatar-role">Ingeniería de Software</p>
+
             <div class="avatar-stats">
+              <div><strong>19</strong><span>Años</span></div>
+              <div><strong>4°</strong><span>Semestre</span></div>
+              <div><strong>∞</strong><span>Curiosidad</span></div>
             </div>
 
             <div class="mascot-wrap">
+              <img src="https://static.wikia.nocookie.net/super-fun-favorites/images/2/2e/Austin_from_The_Backyardigans.png/revision/latest/scale-to-width-down/1200?cb=20230115054024" alt="Austin, el canguro de los Backyardigans" class="mascot" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'mascot-emoji',textContent:'🦘'}))" />
+              <span class="mascot-tag">Mi representación 🟣</span>
             </div>
           </div>
         </div>

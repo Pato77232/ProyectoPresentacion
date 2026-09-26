@@ -1,0 +1,365 @@
+/* =========================================================
+   Los Backyardigans — sitio del grupo
+   Tokens
+   ========================================================= */
+:root{
+  --bg: #eef7f2;
+  --ink: #26323a;
+  --ink-strong: #050505;
+  --ink-soft: #5c6b73;
+  --white: #ffffff;
+
+  /* color de cada integrante, tomado del personaje que representa */
+  --c-shirley: #f4c430; /* amarillo */
+  --c-leslie:  #ef6fa7; /* rosa */
+  --c-pablo:   #3d5a9c; /* azul */
+  --c-david:   #b355a4; /* morado */
+  --c-edwin:   #e8823a; /* naranja */
+
+  --font-display: 'Baloo 2', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+
+  --radius-lg: 28px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{ color: inherit; }
+
+:focus-visible{
+  outline: 3px solid var(--c-pablo);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* =========================================================
+   Topbar
+   ========================================================= */
+.topbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.6rem;
+}
+
+.topbar__brand{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--white);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.topbar__link{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--white);
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease;
+}
+
+.topbar__link:hover{ transform: translateY(-2px); }
+
+/* =========================================================
+   HERO — imagen fija que se desvanece al hacer scroll
+   ========================================================= */
+.hero-wrap{
+  position: relative;
+  height: 180vh; /* espacio extra de scroll para animar el hero */
+}
+
+.hero-pin{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* controlados por JS mientras haces scroll */
+  transform: scale(var(--hero-scale, 1));
+  opacity: var(--hero-opacity, 1);
+  transition: transform 0.05s linear, opacity 0.05s linear;
+}
+
+/* Fondo del patio — reemplázalo por tu imagen real (ver comentario en index.html) */
+.hero-bg{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(20,20,30,0.15), rgba(20,20,30,0.4) 75%, rgba(20,20,30,0.6)),
+    url('../images/fondo.png');
+  background-size: cover;
+  background-position: center;
+  /* El degradado oscuro de arriba es opcional: ayuda a que el título en blanco
+     se lea bien encima de la foto. Si tu imagen ya es oscura o quieres verla
+     tal cual, borra la primera línea del gradient y dejas solo la url(...). */
+}
+
+.hero-title-block{
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--ink-strong); /* Negro más oscuro */
+  z-index: 2;
+}
+
+.hero-title{
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  margin: 0 0 0.3rem;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.4);
+  color: var(--white); /* Forzar blanco en el título principal */
+}
+
+.hero-subtitle{
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  color: var(--white); /* Mantener en blanco */
+}
+
+/* -----------------------------------------------------------
+   Posición de los círculos (en % sobre el contenedor .hero-content)
+   Ajusta --top / --left / --size comparando con tu imagen real.
+   Los valores actuales son un punto de partida basado en una
+   composición de referencia: 3 personajes atrás, 2 más
+   adelante/abajo (Pablo al centro-frente, más grande).
+   ----------------------------------------------------------- */
+.face-circle{
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: var(--size);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.face-circle--shirley{ --top: 20%; --left: 56%; --size: 11%; }
+.face-circle--leslie{  --top: 21%; --left: 73%; --size: 10%; }
+.face-circle--pablo{   --top: 44%; --left: 65%; --size: 14%; }
+.face-circle--david{   --top: 48%; --left: 48%; --size: 12%; }
+.face-circle--edwin{   --top: 49%; --left: 83%; --size: 12%; }
+
+.face-circle__photo{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+.face-circle__photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.face-circle__placeholder{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--white);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.face-circle__tag{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: var(--white);
+  background: rgba(0,0,0,0.35);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.scroll-hint{
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--ink-strong); /* Negro más oscuro */
+  text-shadow: none;
+  opacity: var(--hero-opacity, 1);
+}
+
+.scroll-hint span{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--white);
+  animation: bounce 1.4s ease-in-out infinite;
+}
+
+@keyframes bounce{
+  0%, 100%{ transform: translateY(0); opacity: 0.6; }
+  50%{ transform: translateY(6px); opacity: 1; }
+}
+
+/* =========================================================
+   Secciones verticales de integrantes
+   ========================================================= */
+.members{
+  position: relative;
+  z-index: 5;
+  background: var(--bg);
+}
+
+.member-row{
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 1.6rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.member-row.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.member-row__inner{
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.member-row__eyebrow{
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--row-color);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.member-row__name{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0 0 0.8rem;
+  color: var(--row-color);
+}
+
+.member-row__blurb{
+  margin: 0 0 1.4rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.member-row__link{
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--row-color);
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.member-row__link:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -8px var(--row-color);
+}
+
+.member-row--shirley{ --row-color: var(--c-shirley); background: #fdf6e3; }
+.member-row--leslie{  --row-color: var(--c-leslie);  background: #fdeef4; }
+.member-row--pablo{   --row-color: var(--c-pablo);   background: #eaf0fb; }
+.member-row--david{   --row-color: var(--c-david);   background: #f8ecf6; }
+.member-row--edwin{   --row-color: var(--c-edwin);   background: #fdf1e6; }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.footer{
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 1.8rem 1.5rem;
+  background: var(--ink);
+}
+
+.footer p{
+  margin: 0;
+  color: #cfd8dc;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 640px){
+  .face-circle__tag{ font-size: 0.62rem; padding: 0.15rem 0.5rem; }
+  .hero-title-block{ bottom: 12%; }
+  .member-row{ padding: 3rem 1.2rem; min-height: 50vh; }
+}
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce){
+  .hero-content{ transition: none; }
+  .member-row{
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .scroll-hint span{ animation: none; }
+}

@@ -1,0 +1,525 @@
+:root {
+  --pink-main: #ff4da6;
+  --pink-dark: #d81b60;
+  --pink-light: #ffeef6;
+  --pink-pastel: #ffd1e8;
+  --yellow-star: #ffd166;
+  --text-dark: #5c2040;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(135deg, #ffe6f2 0%, #ffcde4 50%, #ffdcf0 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  padding: 30px 15px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.floating-bubble {
+  position: fixed;
+  pointer-events: none;
+  font-size: 2rem;
+  opacity: 0.35;
+  animation: floatUp 8s infinite linear;
+  z-index: 0;
+}
+.bubble-1 { left: 5%; top: 80%; animation-duration: 9s; }
+.bubble-2 { right: 8%; top: 60%; animation-duration: 7s; }
+.bubble-3 { left: 12%; top: 30%; animation-duration: 11s; }
+.bubble-4 { right: 15%; top: 20%; animation-duration: 8s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+.uniqua-wrapper {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================== HERO Y HOVER FOTO 3D ==================== */
+.uniqua-hero {
+  background: rgba(255, 255, 255, 0.95);
+  border: 4px solid var(--pink-pastel);
+  border-radius: 30px;
+  padding: 25px 35px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 12px 30px rgba(255, 77, 166, 0.15);
+}
+
+.avatar-card {
+  width: 130px;
+  height: 130px;
+  perspective: 1000px;
+  flex-shrink: 0;
+}
+
+.avatar-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.avatar-card:hover .avatar-inner {
+  transform: rotateY(180deg);
+}
+
+.avatar-inner img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border: 4px solid var(--pink-main);
+  box-shadow: 0 6px 15px rgba(255, 77, 166, 0.3);
+}
+
+.avatar-front {
+  object-fit: cover;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.avatar-back {
+  background: var(--pink-light);
+  transform: rotateY(180deg);
+  object-fit: contain;
+  padding: 6px;
+}
+
+.hero-info h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.3rem;
+  color: var(--text-dark);
+}
+
+.name-highlight {
+  color: var(--pink-dark);
+}
+
+.uniqua-tag {
+  display: inline-block;
+  background: var(--pink-pastel);
+  color: var(--pink-dark);
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 4px 14px;
+  border-radius: 15px;
+  margin-bottom: 6px;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: #7a3b5c;
+  margin-top: 4px;
+}
+
+/* ==================== TARJETAS SOBRE MÍ ==================== */
+.about-section {
+  background: var(--white);
+  border: 4px solid var(--pink-pastel);
+  border-radius: 30px;
+  padding: 35px 30px;
+  box-shadow: 0 12px 30px rgba(255, 77, 166, 0.12);
+}
+
+.section-title-wrap {
+  margin-bottom: 25px;
+}
+
+.pill-badge {
+  display: inline-block;
+  background: #ffc4e1;
+  color: var(--pink-dark);
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.section-title-wrap h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.85rem;
+  color: var(--pink-dark);
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  color: #8c5270;
+  font-size: 1rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.pastel-card {
+  background: var(--pink-light);
+  border: 3px solid #ffcbe3;
+  border-radius: 24px;
+  padding: 22px;
+  transition: all 0.25s ease;
+}
+
+.pastel-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--pink-main);
+  box-shadow: 0 8px 20px rgba(255, 77, 166, 0.2);
+}
+
+.card-icon-bubble {
+  width: 46px;
+  height: 46px;
+  background: var(--white);
+  border: 2px solid var(--pink-pastel);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.pastel-card h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.2rem;
+  color: var(--pink-dark);
+  margin-bottom: 8px;
+}
+
+.pastel-card p {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #6d3350;
+}
+
+.card-spotlight {
+  background: #ffe3f0;
+  border-color: var(--pink-main);
+}
+
+/* ==================== SECCIÓN DE LA FERIA DE JUEGOS ==================== */
+.fair-game-section {
+  background: var(--white);
+  border: 4px solid var(--pink-pastel);
+  border-radius: 30px;
+  padding: 25px;
+  box-shadow: 0 12px 30px rgba(255, 77, 166, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fair-main-menu {
+  background: linear-gradient(180deg, #fff0f7 0%, #ffd6eb 100%);
+  border: 3px solid var(--pink-pastel);
+  border-radius: 24px;
+  padding: 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.fair-header-box .fair-icon-banner {
+  font-size: 3.2rem;
+}
+
+.fair-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.2rem;
+  color: var(--pink-dark);
+  text-shadow: 2px 2px 0 #fff;
+  margin: 6px 0;
+}
+
+.fair-sub {
+  font-size: 1.05rem;
+  color: #7a3b5c;
+}
+
+.tickets-counter-pill {
+  display: inline-block;
+  background: var(--yellow-star);
+  color: #5c3b00;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.15rem;
+  padding: 8px 24px;
+  border-radius: 30px;
+  border: 2px solid #e09f00;
+  margin-top: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Grid de Puestos de la Feria */
+.minigames-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 880px;
+}
+
+.game-stall-card {
+  background: white;
+  border: 3px solid #ffcbe3;
+  border-radius: 20px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.game-stall-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pink-main);
+  box-shadow: 0 8px 18px rgba(255, 77, 166, 0.25);
+}
+
+.stall-icon {
+  font-size: 2.3rem;
+  margin-bottom: 2px;
+}
+
+.game-stall-card h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  color: var(--pink-dark);
+}
+
+.game-stall-card p {
+  font-size: 0.8rem;
+  color: #777;
+  flex-grow: 1;
+}
+
+.btn-play-stall {
+  background: linear-gradient(180deg, #ff4da6 0%, #d81b60 100%);
+  color: white;
+  border: none;
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.95rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 4px 0 #b3104e;
+  transition: all 0.15s;
+}
+
+.btn-play-stall:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.mario-action-btn {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 3px solid #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+}
+
+.btn-audio {
+  background: #fdf2f8;
+  color: #a21caf;
+  border-color: #f472b6;
+}
+
+/* ==================== PANTALLA ACTIVA DE MINIJUEGO ==================== */
+.active-game-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.fair-hud {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hud-pill {
+  background: #ffeef6;
+  border: 2px solid var(--pink-main);
+  border-radius: 18px;
+  padding: 6px 14px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.95rem;
+  color: var(--pink-dark);
+}
+
+.btn-return-fair {
+  background: #ff4757;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.game-viewport-box {
+  width: 100%;
+  max-width: 800px;
+  min-height: 480px;
+  border: 4px solid var(--pink-pastel);
+  border-radius: 24px;
+  background: #fff5f9;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==================== ESTILOS ESPECÍFICOS DE CADA MINIJUEGO ==================== */
+/* 1. Tiro al blanco */
+.target-area {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  background: radial-gradient(circle, #ffe3f0 20%, #ffd1e8 100%);
+  cursor: crosshair;
+}
+.fair-target {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #ff4757 20%, white 21%, white 40%, #ff4757 41%, #ff4757 60%, white 61%, white 80%, #ff4757 81%);
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.fair-target:hover { transform: scale(1.08); }
+
+/* 2. Revienta Globos */
+.balloon-area {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  background: linear-gradient(180deg, #c7ecee 0%, #dff9fb 100%);
+  cursor: pointer;
+}
+.fair-balloon {
+  position: absolute;
+  font-size: 3rem;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* 3. Memoria */
+.memory-grid-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+.memory-card {
+  height: 90px;
+  background: var(--pink-main);
+  border: 3px solid #fff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 2.2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+.memory-card.revealed {
+  background: white;
+  border-color: var(--pink-main);
+}
+.memory-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* 4. Atrapa al Personaje (Whack) */
+.whack-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 30px;
+}
+.whack-hole {
+  width: 110px;
+  height: 100px;
+  background: #5d4037;
+  border-radius: 50%;
+  border: 4px solid #8d6e63;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.whack-mole {
+  position: absolute;
+  bottom: -90px;
+  width: 75px;
+  height: 75px;
+  transition: bottom 0.2s ease;
+  cursor: pointer;
+}
+.whack-mole img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.whack-hole.active .whack-mole {
+  bottom: 10px;
+}
+
+/* 5. Mini Carrera Canvas */
+#miniRaceCanvas {
+  width: 100%;
+  max-width: 800px;
+  height: 480px;
+  display: block;
+}

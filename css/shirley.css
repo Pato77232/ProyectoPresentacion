@@ -1,0 +1,158 @@
+/* RESET & FONDO AMARILLO TIPO TASHA */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+    background-color: #FFF6DD;
+    background-image: radial-gradient(#FFDF00 18%, transparent 19%);
+    background-size: 32px 32px;
+    color: #4A2A1F;
+}
+
+/* ENCABEZADO SIN TEXTO "PORTAFOLIO PERSONAL" */
+header.top {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #D62828;
+    color: white;
+    padding: 15px 5vw;
+    border-bottom: 5px solid #FFCC00;
+    box-shadow: 0 4px 0px #4A2A1F;
+}
+
+header.top a.volver {
+    text-decoration: none;
+    color: white;
+    background-color: #B31E1E;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    border: 2px solid #FFCC00;
+    box-shadow: 3px 3px 0px #4A2A1F;
+    transition: transform 0.15s;
+}
+
+header.top a.volver:hover {
+    transform: scale(1.05);
+}
+
+/* MAIN CONTAINER */
+main {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+/* HÉROE Y TARJETA */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 800px) {
+    .hero {
+        grid-template-columns: 1.4fr 1fr;
+    }
+}
+
+.titulo {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin: 0 0 10px;
+    color: #4A2A1F;
+}
+
+.gradient-text {
+    color: #D62828;
+    text-shadow: 2px 2px 0px #FFCC00;
+}
+
+.rol {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #E65100;
+    margin-bottom: 15px;
+}
+
+.bio {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-juego {
+    display: inline-block;
+    background-color: #FFCC00;
+    color: #4A2A1F;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 3px solid #4A2A1F;
+    box-shadow: 4px 4px 0px #D62828;
+    transition: transform 0.2s;
+}
+/* RESET & FONDO AMARILLO TIPO TASHA */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+    background-color: #FFF6DD;
+    background-image: radial-gradient(#FFDF00 18%, transparent 19%);
+    background-size: 32px 32px;
+    color: #4A2A1F;
+}
+
+/* ENCABEZADO SIN TEXTO "PORTAFOLIO PERSONAL" */
+header.top {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #D62828;
+    color: white;
+    padding: 15px 5vw;
+    border-bottom: 5px solid #FFCC00;
+    box-shadow: 0 4px 0px #4A2A1F;
+}
+
+header.top a.volver {
+    text-decoration: none;
+    color: white;
+    background-color: #B31E1E;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    border: 2px solid #FFCC00;
+    box-shadow: 3px 3px 0px #4A2A1F;
+    transition: transform 0.15s;
+}
+
+header.top a.volver:hover {
+    transform: scale(1.05);
+}
+
+/* MAIN CONTAINER */
+main {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+/* HÉROE Y TARJETA */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 800px) {

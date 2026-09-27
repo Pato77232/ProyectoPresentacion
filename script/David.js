@@ -313,10 +313,10 @@ function maybePlaceObstacles(segment, difficulty) {
   const length = segment.end - segment.start;
   if (length < 220) return;
 
-  const chance = 0.5 + difficulty * 0.3;
+  const chance = 0.63 + difficulty * 0.27;
   if (Math.random() > chance) return;
 
-  const minGap = clamp(360 - difficulty * 100, 240, 360);
+  const minGap = clamp(310 - difficulty * 70, 240, 310);
   const usableStart = segment.start + 90;
   const usableEnd = segment.end - 90;
   const usableLen = usableEnd - usableStart;

@@ -1,28 +1,23 @@
 /* =========================================================
    Los Backyardigans — sitio del grupo
-   Tokens
    ========================================================= */
 :root{
-  --bg: #eef7f2;
-  --ink: #26323a;
-  --ink-strong: #050505;
-  --ink-soft: #5c6b73;
+  --bg: #f4f6f2;
+  --ink: #203038;
+  --ink-strong: #10242b;
+  --ink-soft: #52646a;
   --white: #ffffff;
-
-  /* color de cada integrante, tomado del personaje que representa */
-  --c-shirley: #f4c430; /* amarillo */
-  --c-leslie:  #ef6fa7; /* rosa */
-  --c-pablo:   #3d5a9c; /* azul */
-  --c-david:   #b355a4; /* morado */
-  --c-edwin:   #e8823a; /* naranja */
-
+  --c-shirley: #f4c430;
+  --c-leslie: #ef6fa7;
+  --c-pablo: #3d5a9c;
+  --c-david: #b355a4;
+  --c-edwin: #e8823a;
   --font-display: 'Baloo 2', sans-serif;
   --font-body: 'Nunito', sans-serif;
-
-  --radius-lg: 28px;
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
@@ -41,56 +36,52 @@ a{ color: inherit; }
   border-radius: 6px;
 }
 
-/* =========================================================
-   Topbar
-   ========================================================= */
 .topbar{
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto;
   z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem 1.6rem;
+  padding: 1rem clamp(1rem, 4vw, 3.5rem);
+  background: linear-gradient(to bottom, rgba(16,36,43,0.42), transparent);
 }
 
 .topbar__brand{
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.15rem;
   color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
   text-shadow: 0 2px 10px rgba(0,0,0,0.35);
 }
 
 .topbar__link{
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: var(--ink);
-  background: var(--white);
   padding: 0.55rem 1rem;
   border-radius: 999px;
+  background: rgba(255,255,255,0.94);
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  color: var(--ink-strong);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
   transition: transform 0.15s ease;
 }
 
 .topbar__link:hover{ transform: translateY(-2px); }
 
-/* =========================================================
-   HERO — imagen fija que se desvanece al hacer scroll
-   ========================================================= */
 .hero-wrap{
   position: relative;
-  height: 180vh; /* espacio extra de scroll para animar el hero */
+  height: 155vh;
+  min-height: 900px;
 }
 
 .hero-pin{
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100svh;
+  min-height: 560px;
   overflow: hidden;
 }
 
@@ -98,143 +89,127 @@ a{ color: inherit; }
   position: relative;
   width: 100%;
   height: 100%;
-  /* controlados por JS mientras haces scroll */
+  isolation: isolate;
   transform: scale(var(--hero-scale, 1));
   opacity: var(--hero-opacity, 1);
   transition: transform 0.05s linear, opacity 0.05s linear;
 }
 
-/* Fondo del patio — reemplázalo por tu imagen real (ver comentario en index.html) */
 .hero-bg{
   position: absolute;
   inset: 0;
+  z-index: -1;
   background-image:
-    linear-gradient(to bottom, rgba(20,20,30,0.15), rgba(20,20,30,0.4) 75%, rgba(20,20,30,0.6)),
-    url('../images/fondo.png');
-  background-size: cover;
+    linear-gradient(to bottom, rgba(16,36,43,0.32), transparent 36%, rgba(16,36,43,0.08) 58%, rgba(16,36,43,0.86)),
+    url('../images/backyardigans.jpg');
   background-position: center;
-  /* El degradado oscuro de arriba es opcional: ayuda a que el título en blanco
-     se lea bien encima de la foto. Si tu imagen ya es oscura o quieres verla
-     tal cual, borra la primera línea del gradient y dejas solo la url(...). */
+  background-size: cover;
 }
 
 .hero-title-block{
   position: absolute;
+  bottom: 7%;
   left: 50%;
-  bottom: 8%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: var(--ink-strong); /* Negro más oscuro */
   z-index: 2;
+  width: min(92%, 760px);
+  color: var(--white);
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.hero-eyebrow{
+  margin: 0 0 0.35rem;
+  color: #ffe184;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .hero-title{
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
   margin: 0 0 0.3rem;
-  text-shadow: 0 4px 18px rgba(0,0,0,0.4);
-  color: var(--white); /* Forzar blanco en el título principal */
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.02;
+  text-shadow: 0 3px 18px rgba(0,0,0,0.28);
 }
 
 .hero-subtitle{
   margin: 0;
-  font-weight: 600;
+  color: var(--white);
   font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 600;
   text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-  color: var(--white); /* Mantener en blanco */
 }
 
-/* -----------------------------------------------------------
-   Posición de los círculos (en % sobre el contenedor .hero-content)
-   Ajusta --top / --left / --size comparando con tu imagen real.
-   Los valores actuales son un punto de partida basado en una
-   composición de referencia: 3 personajes atrás, 2 más
-   adelante/abajo (Pablo al centro-frente, más grande).
-   ----------------------------------------------------------- */
-.face-circle{
+.hero-members{
   position: absolute;
-  top: var(--top);
-  left: var(--left);
-  width: var(--size);
-  aspect-ratio: 1 / 1;
-  transform: translate(-50%, -50%);
+  bottom: 22%;
+  left: 50%;
   z-index: 3;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.face-circle--shirley{ --top: 20%; --left: 56%; --size: 11%; }
-.face-circle--leslie{  --top: 21%; --left: 73%; --size: 10%; }
-.face-circle--pablo{   --top: 44%; --left: 65%; --size: 14%; }
-.face-circle--david{   --top: 48%; --left: 48%; --size: 12%; }
-.face-circle--edwin{   --top: 49%; --left: 83%; --size: 12%; }
-
-.face-circle__photo{
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 3px solid rgba(255,255,255,0.85);
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(2px);
-  display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  overflow: hidden;
+  gap: 0.65rem;
+  width: min(92%, 840px);
+  transform: translateX(-50%);
 }
 
-.face-circle__photo img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
-
-.face-circle__placeholder{
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.75rem;
-  color: var(--white);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-}
-
-.face-circle__tag{
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.72rem;
-  color: var(--white);
-  background: rgba(0,0,0,0.35);
-  padding: 0.2rem 0.6rem;
+.hero-member{
+  min-width: 130px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(255,255,255,0.58);
   border-radius: 999px;
-  white-space: nowrap;
+  background: rgba(16,36,43,0.68);
+  box-shadow: 0 5px 18px rgba(16,36,43,0.2);
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: transform 0.18s ease, background 0.18s ease;
 }
+
+.hero-member:hover{
+  background: rgba(16,36,43,0.9);
+  transform: translateY(-3px);
+}
+
+.hero-member span{
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.84;
+}
+
+.hero-member--shirley{ border-color: var(--c-shirley); }
+.hero-member--edwin{ border-color: var(--c-edwin); }
+.hero-member--leslie{ border-color: var(--c-leslie); }
+.hero-member--david{ border-color: var(--c-david); }
+.hero-member--pablo{ border-color: #82a9ff; }
 
 .scroll-hint{
   position: absolute;
+  bottom: 1.5%;
   left: 50%;
-  bottom: 2%;
-  transform: translateX(-50%);
   z-index: 2;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-body);
-  font-weight: 700;
+  color: var(--white);
   font-size: 0.8rem;
-  color: var(--ink-strong); /* Negro más oscuro */
-  text-shadow: none;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
   opacity: var(--hero-opacity, 1);
+  transform: translateX(-50%);
 }
 
 .scroll-hint span{
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--white);
+  background: #ffe184;
   animation: bounce 1.4s ease-in-out infinite;
 }
 
@@ -243,23 +218,44 @@ a{ color: inherit; }
   50%{ transform: translateY(6px); opacity: 1; }
 }
 
-/* =========================================================
-   Secciones verticales de integrantes
-   ========================================================= */
 .members{
   position: relative;
   z-index: 5;
   background: var(--bg);
 }
 
+.members__title{
+  margin: 0;
+  padding: 4rem 1.5rem 1rem;
+  color: var(--ink-strong);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  text-align: center;
+}
+
 .member-row{
-  min-height: 60vh;
+  position: relative;
   display: flex;
+  min-height: 54vh;
+  min-height: 54svh;
   align-items: center;
   padding: 4rem 1.6rem;
   opacity: 0;
+  scroll-margin-top: 5rem;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.member-row::before{
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  left: max(8%, calc((100vw - 1100px) / 2));
+  width: 5px;
+  border-radius: 5px;
+  background: var(--row-color);
+  content: '';
 }
 
 .member-row.is-visible{
@@ -268,98 +264,104 @@ a{ color: inherit; }
 }
 
 .member-row__inner{
-  max-width: 640px;
-  margin: 0 auto;
   width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
   text-align: center;
 }
 
 .member-row__eyebrow{
   display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: var(--row-color);
-  padding: 0.3rem 0.9rem;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  margin-bottom: 1rem;
+  background: rgba(255,255,255,0.72);
+  color: var(--ink-strong);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .member-row__name{
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  margin: 0 0 0.8rem;
+  margin: 0 0 0.65rem;
   color: var(--row-color);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.08;
 }
 
 .member-row__blurb{
-  margin: 0 0 1.4rem;
+  margin: 0;
   color: var(--ink-soft);
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
-.member-row__link{
-  display: inline-block;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--white);
-  background: var(--row-color);
-  padding: 0.7rem 1.5rem;
-  border-radius: 999px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
+.member-row--shirley{ --row-color: #99710b; background: #fff6d8; }
+.member-row--leslie{ --row-color: #b43c72; background: #ffedf4; }
+.member-row--pablo{ --row-color: #304d89; background: #eaf0fb; }
+.member-row--david{ --row-color: #8d367f; background: #f8ecf6; }
+.member-row--edwin{ --row-color: #a84f18; background: #fff0e2; }
 
-.member-row__link:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px -8px var(--row-color);
-}
-
-.member-row--shirley{ --row-color: var(--c-shirley); background: #fdf6e3; }
-.member-row--leslie{  --row-color: var(--c-leslie);  background: #fdeef4; }
-.member-row--pablo{   --row-color: var(--c-pablo);   background: #eaf0fb; }
-.member-row--david{   --row-color: var(--c-david);   background: #f8ecf6; }
-.member-row--edwin{   --row-color: var(--c-edwin);   background: #fdf1e6; }
-
-/* =========================================================
-   Footer
-   ========================================================= */
 .footer{
   position: relative;
   z-index: 5;
-  text-align: center;
   padding: 1.8rem 1.5rem;
   background: var(--ink);
+  text-align: center;
 }
 
 .footer p{
   margin: 0;
-  color: #cfd8dc;
+  color: #d6e0dc;
   font-size: 0.85rem;
   font-weight: 600;
 }
 
-/* =========================================================
-   Responsive
-   ========================================================= */
-@media (max-width: 640px){
-  .face-circle__tag{ font-size: 0.62rem; padding: 0.15rem 0.5rem; }
-  .hero-title-block{ bottom: 12%; }
-  .member-row{ padding: 3rem 1.2rem; min-height: 50vh; }
+@media (max-width: 700px){
+  .topbar{ padding: 0.75rem 1rem; }
+  .topbar__brand{ font-size: 1rem; }
+  .topbar__link{ padding: 0.5rem 0.75rem; font-size: 0.8rem; }
+  .hero-wrap{ height: 145vh; min-height: 760px; }
+  .hero-pin{ min-height: 520px; }
+  .hero-bg{ background-position: 52% center; }
+  .hero-members{
+    bottom: 24%;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.45rem;
+    width: min(92%, 420px);
+  }
+  .hero-member{
+    grid-column: span 2;
+    min-width: 0;
+    padding: 0.45rem 0.35rem;
+    font-size: 0.88rem;
+  }
+  .hero-member:nth-child(4){ grid-column: 2 / span 2; }
+  .hero-member:nth-child(5){ grid-column: 4 / span 2; }
+  .hero-member span{ font-size: 0.68rem; }
+  .hero-title-block{ bottom: 7%; }
+  .hero-eyebrow{ font-size: 0.66rem; }
+  .hero-subtitle{ max-width: 300px; margin-inline: auto; }
+  .scroll-hint{ bottom: 1.5%; font-size: 0.7rem; }
+  .members__title{ padding: 3.25rem 1rem 0.75rem; }
+  .member-row{ min-height: 42svh; padding: 3rem 1.2rem; }
+  .member-row::before{ top: 20%; bottom: 20%; left: 1rem; width: 4px; }
 }
 
-/* =========================================================
-   Reduced motion
-   ========================================================= */
+@media (max-width: 380px){
+  .topbar__brand{ font-size: 0.9rem; }
+  .topbar__link{ font-size: 0.72rem; }
+  .hero-members{ width: 96%; gap: 0.35rem; }
+  .hero-member{ font-size: 0.8rem; }
+  .hero-member span{ font-size: 0.62rem; }
+}
+
 @media (prefers-reduced-motion: reduce){
-  .hero-content{ transition: none; }
-  .member-row{
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  html{ scroll-behavior: auto; }
+  .hero-content, .hero-member{ transition: none; }
+  .member-row{ opacity: 1; transform: none; transition: none; }
   .scroll-hint span{ animation: none; }
 }

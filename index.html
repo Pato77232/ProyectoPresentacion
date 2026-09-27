@@ -12,124 +12,81 @@
 <body>
 
 <header class="topbar">
-  <span class="topbar__brand">Los Backyardigans</span>
-  <a href="#integrantes" class="topbar__link">Ver integrantes ↓</a>
-  <a href="integrantes/shirley.html">Shirley</a>
+  <a class="topbar__brand" href="#inicio">Los Backyardigans</a>
+  <a href="#integrantes" class="topbar__link">Conoce al equipo <span aria-hidden="true">↓</span></a>
 </header>
 
 <main>
 
-  <!-- ============ HERO: imagen de fondo con los 5 personajes ============ -->
-  <div class="hero-wrap">
-    <div class="hero-pin" id="heroPin">
+  <section class="hero-wrap" id="inicio" aria-labelledby="hero-title">
+    <div class="hero-pin">
       <div class="hero-content" id="heroContent">
-
-        <!--
-          Reemplaza el fondo cuando tengas tu imagen libre de derechos:
-          1) coloca el archivo en la carpeta imagenes/ (por ejemplo imagenes/hero-backyard.jpg)
-          2) cambia la línea en css/style.css, selector .hero-bg:
-             background-image: url('../imagenes/hero-backyard.jpg');
-        -->
         <div class="hero-bg" aria-hidden="true"></div>
 
         <div class="hero-title-block">
-          <h1 class="hero-title">Los Backyardigans</h1>
-          <p class="hero-subtitle">Manejo y Configuración de Software · UTA</p>
+          <p class="hero-eyebrow">Proyecto universitario · UTA</p>
+          <h1 class="hero-title" id="hero-title">Los Backyardigans</h1>
+          <p class="hero-subtitle">Manejo y Configuración de Software</p>
         </div>
 
-        <!--
-          Círculos para las fotos de cada integrante.
-          Posición y tamaño se ajustan con --top / --left / --size en style.css
-          (sección "Posición de los círculos" — muévelos comparando con tu imagen real).
-        -->
-        <div class="face-circle face-circle--shirley" data-member="shirley">
-          <a href="shirley.html" class="face-circle__photo">
-            <img src="images/shirley.jpg" alt="Foto de Shirley Amaguaña">
-          </a>
-          <span class="face-circle__tag">Shirley</span>
-        </div>
-
-        <div class="face-circle face-circle--leslie" data-member="leslie">
-          <a href="Leslie.html" class="face-circle__photo">
-            <img src="images/leslie.png" alt="Foto de Leslie Coello">
-          </a>
-          <span class="face-circle__tag">Leslie</span>
-        </div>
-
-        <div class="face-circle face-circle--pablo" data-member="pablo">
-          <a href="Pablo_Html.html" class="face-circle__photo">
-            <img src="images/PabloFoto.jpeg" alt="Foto de Pablo Topanta">
-          </a>
-          <span class="face-circle__tag">Pablo</span>
-        </div>
-
-        <div class="face-circle face-circle--david" data-member="david">
-          <a href="David_Html.html" class="face-circle__photo">
-            <img src="images/DavidFoto.jpeg" alt="Foto de David Cuenca">
-          </a>
-          <span class="face-circle__tag">David</span>
-        </div>
-
-        <div class="face-circle face-circle--edwin" data-member="edwin">
-          <a href="EdwinCaraguay.html" class="face-circle__photo">
-            <img src="images/EdwinFoto.jpeg" alt="Foto de Edwin Caraguay">
-          </a>
-          <span class="face-circle__tag">Edwin</span>
-        </div>
-
+        <nav class="hero-members" aria-label="Integrantes del equipo">
+          <a class="hero-member hero-member--shirley" href="#integrante-shirley">Shirley <span>Amaguaña</span></a>
+          <a class="hero-member hero-member--edwin" href="#integrante-edwin">Edwin <span>Caraguay</span></a>
+          <a class="hero-member hero-member--leslie" href="#integrante-leslie">Leslie <span>Coello</span></a>
+          <a class="hero-member hero-member--david" href="#integrante-david">David <span>Cuenca</span></a>
+          <a class="hero-member hero-member--pablo" href="#integrante-pablo">Pablo <span>Toapanta</span></a>
+        </nav>
       </div>
 
       <div class="scroll-hint" aria-hidden="true">
-        <span></span> desliza para conocernos
+        <span></span> Desliza para conocer al equipo
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ============ 5 SECCIONES VERTICALES DE INTEGRANTES ============ -->
-  <section class="members" id="integrantes">
+  <section class="members" id="integrantes" aria-labelledby="members-title">
+    <h2 class="members__title" id="members-title">Nuestro equipo</h2>
 
-    <article class="member-row member-row--shirley">
+    <article class="member-row member-row--shirley" id="integrante-shirley" aria-labelledby="name-shirley">
       <div class="member-row__inner">
         <span class="member-row__eyebrow">Integrante</span>
-        <h2 class="member-row__name">Shirley Amaguaña</h2>
+        <h3 class="member-row__name" id="name-shirley">Shirley Amaguaña</h3>
         <p class="member-row__blurb">La Diseñadora</p>
-        <a href="shirley.html" class="member-row__link">Conocer más →</a>
       </div>
     </article>
 
-    <article class="member-row member-row--edwin">
+    <article class="member-row member-row--edwin" id="integrante-edwin" aria-labelledby="name-edwin">
       <div class="member-row__inner">
         <span class="member-row__eyebrow">Integrante</span>
-        <h2 class="member-row__name">Edwin Caraguay</h2>
+        <h3 class="member-row__name" id="name-edwin">Edwin Caraguay</h3>
         <p class="member-row__blurb">El Proyectado</p>
-        <a href="EdwinCaraguay.html" class="member-row__link">Conocer más →</a>
       </div>
     </article>
 
-    <article class="member-row member-row--leslie">
+    <article class="member-row member-row--leslie" id="integrante-leslie" aria-labelledby="name-leslie">
       <div class="member-row__inner">
         <span class="member-row__eyebrow">Integrante</span>
-        <h2 class="member-row__name">Leslie Coello</h2>
+        <h3 class="member-row__name" id="name-leslie">Leslie Coello</h3>
         <p class="member-row__blurb">La Pulga</p>
-        <a href="Leslie.html" class="member-row__link">Conocer más →</a>
+        <a href="./integrantes/Leslie.html" class="member-row__link">Conocer más →</a>
       </div>
     </article>
 
-    <article class="member-row member-row--david">
+    <article class="member-row member-row--david" id="integrante-david" aria-labelledby="name-david">
       <div class="member-row__inner">
         <span class="member-row__eyebrow">Integrante</span>
-        <h2 class="member-row__name">David Cuenca</h2>
+        <h3 class="member-row__name" id="name-david">David Cuenca</h3>
         <p class="member-row__blurb">Programador Profesional</p>
-        <a href="David_Html.html" class="member-row__link">Conocer más →</a>
+        <a href="integrantes/David.html" class="member-row__link">Conocer más →</a>
       </div>
     </article>
 
-    <article class="member-row member-row--pablo">
+    <article class="member-row member-row--pablo" id="integrante-pablo" aria-labelledby="name-pablo">
       <div class="member-row__inner">
         <span class="member-row__eyebrow">Integrante</span>
-        <h2 class="member-row__name">Pablo Topanta</h2>
+        <h3 class="member-row__name" id="name-pablo">Pablo Toapanta</h3>
         <p class="member-row__blurb">El Lider</p>
-        <a href="Pablo_Html.html" class="member-row__link">Conocer más →</a>
+        <a href="integrantes/Pablo.html" class="member-row__link">Conocer más →</a>
       </div>
     </article>
 

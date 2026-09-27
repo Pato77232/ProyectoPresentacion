@@ -1,0 +1,28 @@
+# ===== Node.js =====
+# Dependencias instaladas (no se suben porque se regeneran con npm install)
+node_modules/
+# Archivos de entorno (contienen secretos)
+.env
+# Carpeta de distribución (generada en build)
+dist/
+
+# ===== Python =====
+# Archivos compilados (se regeneran)
+__pycache__/
+*.pyc
+# Entorno virtual (cada quien crea el suyo)
+.venv/
+venv/
+
+# ===== Java =====
+# Archivos compilados
+*.class
+# Carpeta de build de Maven/Gradle
+target/
+build/
+.gradle/
+
+# ===== Sistema Operativo =====
+.DS_Store
+Thumbs.db
+

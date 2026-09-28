@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirley Amaguaña</title>
+    
+    <!-- Fuente caricatura -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/shirley.css">
+</head>
+<body>
+
+    <header class="top">
+        <a class="volver" href="../index.html">&larr; Volver al equipo</a>
+    </header>
+
+    <main>
+        <!-- HÉROE (Misma estructura de la tarjeta a la derecha) -->
+        <section class="hero">
+            <div class="hero-left">
+                <h1 class="titulo">
+                   Hola, <span class="gradient-text">soy Shirley</span>
+                </h1>
+
+                <p class="rol"> Apasionada por el Desarrollo Software</p>
+
+                <p class="bio">
+                    Estudiante de <strong>Ingeniería de Software</strong>, actualmente cursando el <strong>4to semestre</strong>. Me apasiona la tecnología, resolver problemas con código y descubrir nuevas formas de crear soluciones eficientes.
+                </p>
+
+                <div class="action-buttons">
+                    <a href="#juego" class="btn-juego">🎮 Jugar Bubble Shooter</a>
+                </div>
+            </div>
+
+            <!-- TARJETA LATERAL ESTILO COMPAÑERO -->
+            <div class="hero-right">
+                <div class="profile-card">
+                    <!-- Foto de perfil más grande con efecto hover -->
+                    <div class="grupo-retrato">
+                        <img src="../images/shirley.jpg" alt="Shirley Amaguaña" class="imagen-retrato imagen-real">
+                        <img src="../images/tasha.png" alt="Tasha" class="imagen-retrato imagen-tasha">
+                    </div>
+
+                    <h2 class="profile-name">Shirley Amaguaña</h2>
+                    <p class="profile-role">Ingeniería de Software</p>
+
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">19</span>
+                            <span class="stat-label">AÑOS</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4to</span>
+                            <span class="stat-label">SEMESTRE</span>
+                        </div>
+                    </div>
+
+                    <div class="tasha-tag">
+                        <span>Mi personaje 💛</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ Y MIS GUSTOS -->
+        <section class="sobre-mi">
+            <span class="insignia">SOBRE MÍ</span>
+            <h2>Un poco de mi historia y lo que me apasiona</h2>
+            <p class="seccion-desc">
+                Uniendo mi vida en el código y mis pasiones del día a día.
+            </p>
+
+            <div class="grid-gustos">
+                <div class="card-gusto">
+                    <div class="icon">💻</div>
+                    <h3>Programar</h3>
+                    <p>Me encanta la lógica de programación, crear sistemas dinámicos y aprender nuevos lenguajes e infraestructura de software.</p>
+                </div>
+
+                <div class="card-gusto">
+                    <div class="icon">🍓</div>
+                    <h3>Fresas</h3>
+                    <p>Mi fruta favorita por excelencia. ¡Cualquier postre con fresas me alegra el día completamente!</p>
+                </div>
+
+                <div class="card-gusto">
+                    <div class="icon">🎧</div>
+                    <h3>Música</h3>
+                    <p>La mejor compañía al momento de programar o concentrarme. La música marca el ritmo de mis jornadas de estudio.</p>
+                </div>
+
+                <div class="card-gusto">
+                    <div class="icon">🍳</div>
+                    <h3>Cocinar</h3>
+                    <p>Disfruto mucho preparar recetas deliciosas en mis tiempos libres, experimentando como en el código pero con ingredientes.</p>
+                </div>
+
+                <div class="card-gusto">
+                    <div class="icon">🐶</div>
+                    <h3>Perritos</h3>
+                    <p>Amante total de las mascotas. Un buen momento jugando con perritos es la mejor forma de recargar energía.</p>
+                </div>
+
+                <div class="card-gusto highlight-card">
+                    <div class="icon">🎓</div>
+                    <h3>4to Semestre · UTA</h3>
+                    <p>Formándome como futura Ingeniera en Software en la Universidad Técnica de Ambato con constancia y disciplina.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN JUEGO BUBBLE SHOOTER -->
+        <section id="juego" class="juego">
+            <h2>Backyardigans Bubble Shooter</h2>
+            <p class="intro">Mueve el cursor para apuntar con la trayectoria de puntos y haz clic para disparar. ¡Reúne 3 o más del mismo color para hacerlas explotar!</p>
+
+            <div class="panel-juego">
+                <div class="marcador">
+                    PUNTOS: <strong id="contador-puntos">0</strong>
+                </div>
+                <button id="reiniciar" type="button">Reiniciar Juego</button>
+            </div>
+
+            <div class="juego-layout">
+                <!-- Canvas de juego -->
+                <div class="contenedor-canvas">
+                    <canvas id="gameCanvas" width="400" height="480"></canvas>
+                </div>
+
+                <!-- Zona Lateral del Personaje sin círculo y mucho más grande -->
+                <div class="personaje-display">
+                    <h3>Personaje Activo</h3>
+                    <div class="avatar-box">
+                        <img id="avatar-personaje" src="../images/tasha.png" alt="Personaje Actual">
+                    </div>
+                    <p id="nombre-personaje" class="nombre-char">Tasha</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>Página personal — Shirley Amaguaña</footer>
+
+    <script src="../script/shirley.js"></script>
+</body>
+</html>
+              

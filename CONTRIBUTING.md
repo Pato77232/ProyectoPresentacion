@@ -8,8 +8,7 @@
 - `hotfix/*`: Correcciones urgentes en `main`.
 
 ## Reglas para Pull Requests
-1. Todo cambio debe ir en una rama `feature/nombre-tarea`.
-2. Crear PR hacia `develop` (nunca a `main` directamente).
+1. Para nuevas funcionalidades, usar una rama `feature/nombre-tarea` y crear el PR hacia `develop`; las ramas `release/*` y `hotfix/*` se integran mediante PR hacia `main` según el flujo indicado.
 3. Se requiere al menos **1 revisión aprobatoria** de otro integrante.
 4. El revisor debe dejar al menos **1 comentario constructivo**.
 5. Una vez aprobado, el autor hace el merge y borra la rama.

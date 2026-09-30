@@ -79,7 +79,7 @@
             </div>
 
             <div class="mascot-wrap">
-              <img src="imgs/pabloDibujo.png" alt="Pablo, el pingüino de los Backyardigans" class="mascot" />
+              <img src="../images/pablo.png" alt="Pablo, el pingüino de los Backyardigans" class="mascot" />
               <span class="mascot-tag">Mi tocayo 🐧</span>
             </div>
           </div>
@@ -229,6 +229,12 @@
     <!-- ================= TETRIS ================= -->
     <section id="tetris" class="section">
       <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow-purple">Mini-juego</p>
+          <h2>Tetris</h2>
+          <p>Completa líneas, suma puntos y supera tu mejor nivel.</p>
+        </header>
+
         <div class="tetris-wrap">
           <div class="tetris-board glass">
 
@@ -245,11 +251,11 @@
             </div>
 
             <div class="tetris-canvas-holder">
-              <canvas id="tetrisCanvas" width="300" height="600" aria-label="Tablero de Tetris"></canvas>
+              <canvas id="tetrisCanvas" width="300" height="600" aria-label="Tablero de Tetris de 10 columnas y 20 filas"></canvas>
               <div id="tetrisOverlay" class="tetris-overlay">
                 <p class="overlay-title" id="overlayTitle">TETRIS</p>
-                <p class="overlay-sub" id="overlaySub">Pulsa comenzar para jugar</p>
-                <button id="startBtn" class="btn btn-primary">▶ Comenzar</button>
+                <p class="overlay-sub" id="overlaySub" aria-live="polite" aria-atomic="true">Pulsa comenzar para jugar</p>
+                <button id="startBtn" class="btn btn-primary" type="button">▶ Comenzar</button>
               </div>
             </div>
 
@@ -262,8 +268,8 @@
                 <button class="dpad-btn dpad-drop" data-action="drop" aria-label="Caída">⤓</button>
               </div>
               <div class="tetris-buttons">
-                <button id="pauseBtn" class="btn btn-ghost">⏸ Pausa</button>
-                <button id="restartBtn" class="btn btn-ghost">🔄 Reiniciar</button>
+                <button id="pauseBtn" class="btn btn-ghost" type="button">⏸ Pausa</button>
+                <button id="restartBtn" class="btn btn-ghost" type="button">🔄 Reiniciar</button>
               </div>
             </div>
 
@@ -291,6 +297,6 @@
   </footer>
 
   <!-- ================= JAVASCRIPT ================= -->
-  <script src="Pablo_js.js"></script>
+  <script src="../script/pablo-toapanta.js"></script>
 </body>
 </html>

@@ -854,8 +854,244 @@ button {
   color: var(--muted);
 }
 
+/* ================= 9. MINIJUEGO: MOTO EXTREME 2D ================= */
+#proyecto.section {
+  padding-top: 3rem;
+}
 
-/* ================= 9. FOOTER ================= */
+.game-wrap-outer {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.game-board {
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+}
+
+.game-hud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 1.1rem;
+  background: rgba(2, 6, 23, 0.35);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.9rem;
+}
+
+.hud-item {
+  min-width: 4.6rem;
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--glass-border);
+}
+.hud-item:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.hud-item span {
+  display: block;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.hud-item b {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.hud-lives b {
+  color: var(--pink-light);
+  letter-spacing: 2px;
+}
+.hud-record b {
+  color: var(--yellow);
+}
+
+.icon-btn {
+  margin-left: auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.7rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  font-weight: 800;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.icon-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--yellow-soft);
+}
+
+.game-canvas-holder {
+  position: relative;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(196, 181, 253, 0.14);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 3, 20, 0.72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  padding: 1rem;
+}
+
+.game-overlay.hidden {
+  display: none;
+}
+
+.game-panel {
+  width: min(26rem, 100%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.game-panel .btn {
+  width: 100%;
+  max-width: 16rem;
+}
+
+.overlay-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(120deg, var(--blue-300), var(--cyan), var(--yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.overlay-sub {
+  color: var(--muted);
+  font-size: 0.85rem;
+  max-width: 22rem;
+}
+
+.record-badge {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: rgba(250, 204, 21, 0.15);
+  border: 1px solid rgba(250, 204, 21, 0.5);
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  animation: pulseGlow 1.4s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { filter: brightness(1); transform: scale(1); }
+  50%      { filter: brightness(1.25); transform: scale(1.03); }
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  width: 100%;
+}
+.result-grid div {
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.85rem;
+  text-align: center;
+  padding: 0.7rem 0.3rem;
+}
+.result-grid span {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.result-grid strong {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--yellow);
+}
+
+.mobile-controls {
+  display: none;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 5;
+}
+.mobile-controls button {
+  pointer-events: auto;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(10, 4, 26, 0.7);
+  border: 1px solid var(--glass-border);
+  color: #fff;
+  font-size: 1.1rem;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.mobile-controls button:active {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+.controls-hint {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--faint);
+}
+
+.tetris-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--faint);
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.8rem;
+  padding: 0.15rem 0.4rem;
+  margin: 0 0.1rem;
+  border-radius: 0.4rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(196, 181, 253, 0.2);
+  border-bottom-width: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+/* ================= 10. FOOTER ================= */
 footer {
   padding: 2.5rem 0;
   border-top: 1px solid rgba(196, 181, 253, 0.12);

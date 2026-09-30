@@ -935,18 +935,24 @@ button {
 }
 
 .game__layout {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 12.5rem;
   gap: 1.8rem;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: start;
+  width: min(100%, 49.25rem);
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 /* Tablero: grid de 8x8 */
 .chess-board {
   display: grid;
-  grid-template-columns: repeat(8, minmax(34px, 56px));
-  grid-template-rows: repeat(8, minmax(34px, 56px));
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 1;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(8, minmax(0, 1fr));
   border: 3px solid var(--blue-700);
   border-radius: 0.9rem;
   overflow: hidden;
@@ -991,8 +997,35 @@ button {
 .square--black-piece { color: #2a1608; }
 
 .game__panel {
+  flex: 0 1 200px;
   min-width: 200px;
   text-align: left;
+}
+
+.promotion-picker {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+.promotion-picker[hidden] {
+  display: none;
+}
+
+.promotion-picker button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 0.4rem;
+  background: var(--glass-bg);
+  color: var(--text);
+  font-size: 1.45rem;
+}
+
+.promotion-picker button:hover,
+.promotion-picker button:focus-visible {
+  border-color: var(--yellow);
+  background: rgba(250, 204, 21, 0.12);
 }
 
 .game__status {
@@ -1028,12 +1061,26 @@ button {
 }
 
 @media (max-width: 560px) {
-  .game__layout { flex-direction: column; align-items: center; }
+  .game__layout {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
   .chess-board {
     grid-template-columns: repeat(8, minmax(32px, 1fr));
     grid-template-rows: repeat(8, minmax(32px, 1fr));
     width: 100%;
     max-width: 340px;
+    height: auto;
+  }
+
+  .game__panel {
+    width: 100%;
+    text-align: center;
+  }
+
+  .promotion-picker {
+    justify-content: center;
   }
 }
 

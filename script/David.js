@@ -1,3 +1,17 @@
+const lifecycleController = new AbortController();
+let animationFrameId = 0;
+let revealObserver = null;
+
+window.addEventListener(
+  "david-profile-cleanup",
+  () => {
+    lifecycleController.abort();
+    revealObserver?.disconnect();
+    cancelAnimationFrame(animationFrameId);
+  },
+  { once: true },
+);
+
 (function () {
   "use strict";
 
@@ -18,7 +32,7 @@
     deleting = false;
 
   function typeEffect() {
-    if (!typedEl) return;
+    if (!typedEl || lifecycleController.signal.aborted) return;
     const current = roles[roleIdx];
     if (!deleting) {
       typedEl.textContent = current.slice(0, ++charIdx);
@@ -42,7 +56,7 @@
   /* ================================================================
      2. REVEAL AL HACER SCROLL
   ================================================================ */
-  const revealObserver = new IntersectionObserver(
+  revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -63,12 +77,16 @@
      3. ORBES CON PARALAJE SEGÚN EL MOUSE
   ================================================================ */
   const orbField = document.getElementById("orbField");
-  window.addEventListener("mousemove", (e) => {
-    if (!orbField) return;
-    const x = (e.clientX / window.innerWidth - 0.5) * 30;
-    const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    orbField.style.transform = `translate(${x}px, ${y}px)`;
-  });
+  window.addEventListener(
+    "mousemove",
+    (e) => {
+      if (!orbField) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 30;
+      const y = (e.clientY / window.innerHeight - 0.5) * 30;
+      orbField.style.transform = `translate(${x}px, ${y}px)`;
+    },
+    { signal: lifecycleController.signal },
+  );
 })();
 
 /* =====================================================================
@@ -578,31 +596,43 @@ function togglePause() {
 // CONTROLES DE TECLADO
 // ==========================================
 
-window.addEventListener("keydown", function (event) {
-  keys[event.key] = true;
+window.addEventListener(
+  "keydown",
+  function (event) {
+    keys[event.key] = true;
 
-  if (
-    event.key === "ArrowUp" ||
-    event.key === "ArrowDown" ||
-    event.key === "ArrowLeft" ||
-    event.key === "ArrowRight" ||
-    event.key === " "
-  ) {
-    event.preventDefault();
-  }
+    if (
+      event.key === "ArrowUp" ||
+      event.key === "ArrowDown" ||
+      event.key === "ArrowLeft" ||
+      event.key === "ArrowRight" ||
+      event.key === " "
+    ) {
+      event.preventDefault();
+    }
 
-  if (event.key === "Escape") {
-    togglePause();
-  }
-});
+    if (event.key === "Escape") {
+      togglePause();
+    }
+  },
+  { signal: lifecycleController.signal },
+);
 
-window.addEventListener("keyup", function (event) {
-  keys[event.key] = false;
-});
+window.addEventListener(
+  "keyup",
+  function (event) {
+    keys[event.key] = false;
+  },
+  { signal: lifecycleController.signal },
+);
 
-window.addEventListener("blur", function () {
-  if (gameState === "playing") pauseGame();
-});
+window.addEventListener(
+  "blur",
+  function () {
+    if (gameState === "playing") pauseGame();
+  },
+  { signal: lifecycleController.signal },
+);
 
 // ==========================================
 // CONTROLES TÁCTILES
@@ -621,12 +651,27 @@ document.querySelectorAll(".mobile-controls button").forEach((btn) => {
     keys[mapped] = false;
   };
 
-  btn.addEventListener("touchstart", press, { passive: false });
-  btn.addEventListener("touchend", release, { passive: false });
-  btn.addEventListener("touchcancel", release, { passive: false });
-  btn.addEventListener("mousedown", press);
-  btn.addEventListener("mouseup", release);
-  btn.addEventListener("mouseleave", release);
+  btn.addEventListener("touchstart", press, {
+    passive: false,
+    signal: lifecycleController.signal,
+  });
+  btn.addEventListener("touchend", release, {
+    passive: false,
+    signal: lifecycleController.signal,
+  });
+  btn.addEventListener("touchcancel", release, {
+    passive: false,
+    signal: lifecycleController.signal,
+  });
+  btn.addEventListener("mousedown", press, {
+    signal: lifecycleController.signal,
+  });
+  btn.addEventListener("mouseup", release, {
+    signal: lifecycleController.signal,
+  });
+  btn.addEventListener("mouseleave", release, {
+    signal: lifecycleController.signal,
+  });
 });
 
 // ==========================================
@@ -1384,24 +1429,39 @@ function render() {
 // ==========================================
 
 function gameLoop(time) {
+  if (lifecycleController.signal.aborted) return;
   const deltaTime = Math.min((time - lastTime) / 1000, 0.033);
   lastTime = time;
 
   update(deltaTime);
   render();
 
-  requestAnimationFrame(gameLoop);
+  animationFrameId = requestAnimationFrame(gameLoop);
 }
 
 // ==========================================
 // BOTONES
 // ==========================================
 
-document.getElementById("startBtn").addEventListener("click", startGame);
-document.getElementById("retryBtn").addEventListener("click", startGame);
-document.getElementById("pauseBtn").addEventListener("click", togglePause);
-document.getElementById("resumeBtn").addEventListener("click", resumeGame);
-document.getElementById("restartBtn").addEventListener("click", startGame);
+document
+  .getElementById("startBtn")
+  .addEventListener("click", startGame, { signal: lifecycleController.signal });
+document
+  .getElementById("retryBtn")
+  .addEventListener("click", startGame, { signal: lifecycleController.signal });
+document
+  .getElementById("pauseBtn")
+  .addEventListener("click", togglePause, {
+    signal: lifecycleController.signal,
+  });
+document
+  .getElementById("resumeBtn")
+  .addEventListener("click", resumeGame, {
+    signal: lifecycleController.signal,
+  });
+document
+  .getElementById("restartBtn")
+  .addEventListener("click", startGame, { signal: lifecycleController.signal });
 
 // ==========================================
 // INICIO
@@ -1409,4 +1469,4 @@ document.getElementById("restartBtn").addEventListener("click", startGame);
 
 resetWorld();
 updateHUD();
-requestAnimationFrame(gameLoop);
+animationFrameId = requestAnimationFrame(gameLoop);

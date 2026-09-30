@@ -6,6 +6,7 @@ import leslieImage from '../../images/leslie.png'
 import pabloImage from '../../images/pabloFoto.jpeg'
 import shirleyImage from '../../images/shirley.jpg'
 import EdwinProfile from './EdwinProfile'
+import DavidProfile from './DavidProfile'
 import PabloProfile from './PabloProfile'
 import './App.css'
 
@@ -13,6 +14,8 @@ const members = [
   { id: 'shirley', name: 'Shirley Amaguaña', alias: 'Tasha', role: 'La Diseñadora', image: shirleyImage, profile: '/integrantes/shirley.html' },
   { id: 'edwin', name: 'Edwin Caraguay', alias: 'Tyrone', role: 'El Proyectado', image: edwinImage, profile: '#perfil-edwin' },
   { id: 'leslie', name: 'Leslie Coello', alias: 'Uniqua', role: 'La Pulga', image: leslieImage, profile: '/integrantes/Leslie.html' },
+  { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '#perfil-david' },
+  { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '/integrantes/Pablo.html' },
   { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '/integrantes/David.html' },
   { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '#perfil-pablo' },
 ]
@@ -23,6 +26,12 @@ function getProfileRoute() {
 }
 
 function App() {
+  const [currentProfile, setCurrentProfile] = useState(() => window.location.hash)
+  const isEdwinProfile = currentProfile === '#perfil-edwin'
+  const isDavidProfile = currentProfile === '#perfil-david'
+
+  useEffect(() => {
+    const updateRoute = () => setCurrentProfile(window.location.hash)
   const [profileRoute, setProfileRoute] = useState(getProfileRoute)
 
   useEffect(() => {
@@ -35,6 +44,7 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (isEdwinProfile || isDavidProfile) return
     if (profileRoute === 'perfil-edwin' || profileRoute === 'perfil-pablo') return
 
     const rows = document.querySelectorAll<HTMLElement>('.member-row')
@@ -49,6 +59,10 @@ function App() {
 
     rows.forEach((row) => observer.observe(row))
     return () => observer.disconnect()
+  }, [isEdwinProfile, isDavidProfile])
+
+  if (isEdwinProfile) return <EdwinProfile />
+  if (isDavidProfile) return <DavidProfile />
   }, [profileRoute])
 
   if (profileRoute === 'perfil-edwin') return <EdwinProfile />

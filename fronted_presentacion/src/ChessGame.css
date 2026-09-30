@@ -1,0 +1,92 @@
+.chess-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 560px) 190px;
+  justify-content: center;
+  align-items: start;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chessgame-board {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 3px solid #a84f18;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .32);
+}
+
+.chess-square {
+  display: grid;
+  min-width: 0;
+  aspect-ratio: 1;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.chess-square--light { background: #ffca91; }
+.chess-square--dark { background: #bc410e; }
+.chess-square--selected { outline: 4px solid #f5c84b; outline-offset: -4px; z-index: 1; }
+.chess-square--legal { box-shadow: inset 0 0 0 4px rgba(27, 54, 43, .22); }
+.chess-square--capture { box-shadow: inset 0 0 0 4px rgba(156, 29, 22, .58); }
+.chess-square--last { box-shadow: inset 0 0 0 3px rgba(246, 203, 113, .64); }
+
+.chess-square--legal:not(.chess-square--capture)::after {
+  width: 22%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(31, 16, 9, .3);
+  content: '';
+  position: absolute;
+}
+
+.chess-piece { position: relative; z-index: 1; font-size: clamp(1.7rem, 5.5vw, 3.4rem); line-height: 1; }
+.chess-piece--w { color: #fffaf3; text-shadow: 0 1px 2px #462819, 0 2px 4px rgba(0, 0, 0, .55); }
+.chess-piece--b { color: #321609; text-shadow: 0 1px 1px rgba(255, 220, 174, .5); }
+
+.chess-controls { display: grid; justify-items: start; gap: .9rem; padding-top: .4rem; }
+
+.chess-status { margin: 0; color: var(--edwin-paper); font-family: var(--display); font-size: 1.1rem; font-weight: 800; }
+
+.chess-reset {
+  min-height: 42px;
+  padding: .6rem .9rem;
+  border: 1px solid rgba(251, 146, 60, .55);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--edwin-paper);
+  font-size: .82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.chess-reset:hover { background: rgba(251, 146, 60, .15); }
+
+.chess-promotion { display: flex; flex-wrap: wrap; gap: .35rem; }
+
+.chess-promotion button {
+  width: 42px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(251, 146, 60, .55);
+  background: #3a2013;
+  color: #fff4e9;
+  font-size: 1.65rem;
+  cursor: pointer;
+}
+
+.chess-promotion button:hover { border-color: var(--edwin-amber); }
+
+@media (max-width: 760px) {
+  .chess-layout { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .chess-controls { width: 100%; justify-items: center; text-align: center; }
+  .chess-status { min-height: 1.6em; }
+}
+
+@media (max-width: 380px) {
+  .chess-piece { font-size: 1.55rem; }
+}

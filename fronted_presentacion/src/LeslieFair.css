@@ -1,0 +1,112 @@
+.leslie-fair {
+  width: min(1100px, 90%);
+  margin: auto;
+  padding: 3rem 0 5rem;
+  border-top: 1px solid #f0d9e3;
+}
+
+.leslie-fair__wallet {
+  width: fit-content;
+  margin: 1.5rem auto;
+  padding: .7rem 1rem;
+  border-radius: 999px;
+  background: #fff0f6;
+  color: #86345a;
+  font-weight: 800;
+}
+
+.leslie-fair__games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.leslie-fair__card {
+  display: flex;
+  min-height: 230px;
+  flex-direction: column;
+  padding: 1.25rem;
+  border: 1px solid #f0d9e3;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(180, 60, 114, .08);
+}
+
+.leslie-fair__card h3 { margin: .8rem 0 .35rem; }
+.leslie-fair__card p { flex: 1; color: #65555d; }
+.leslie-fair__icon { font-size: 2rem; }
+.leslie-fair button {
+  border: 0;
+  border-radius: .7rem;
+  background: #b43c72;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  padding: .65rem .9rem;
+}
+
+.leslie-fair__active { overflow: hidden; border-radius: 1rem; background: #30232a; }
+.leslie-fair__hud { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding: 1rem; color: #fff; }
+.leslie-fair__hud strong { margin-right: auto; }
+.leslie-fair__hud button { background: #fff0f6; color: #86345a; }
+.leslie-fair__arena,
+.fair-racing__track {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #ffd7e8, #a8e6cf);
+}
+
+.fair-target,
+.fair-balloon {
+  position: absolute;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 2.2rem;
+  transform: translate(-50%, -50%);
+}
+.fair-target { transition: transform .15s; }
+.fair-target:hover { transform: translate(-50%, -50%) scale(1.2); }
+.fair-balloon { bottom: 0; transition: bottom .3s linear; }
+
+.fair-memory {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(60px, 100px));
+  justify-content: center;
+  gap: .75rem;
+  padding: 3rem 1rem;
+  background: #fff0f6;
+}
+.fair-memory__card { aspect-ratio: 1; padding: 0; background: #b43c72; font-size: 2rem; }
+.fair-memory__card.is-open { background: #fff; color: #30232a; }
+
+.fair-whack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(80px, 130px));
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+  background: #a8e6cf;
+}
+.fair-whack__hole { aspect-ratio: 1; border-radius: 50%; background: #533c56; color: #fff; font-size: 2.5rem; }
+.fair-whack__hole.is-active { background: #ff8ac2; }
+
+.fair-racing { background: #a8e6cf; }
+.fair-racing__track { width: min(600px, 100%); margin: auto; background: #533c56; }
+.fair-racing__track::before,
+.fair-racing__track::after { position: absolute; top: 0; bottom: 0; width: 33%; border-inline: 2px dashed #ffd1e8; content: ''; }
+.fair-racing__track::before { left: 0; }
+.fair-racing__track::after { right: 0; }
+.fair-racing__obstacle,
+.fair-racing__player { position: absolute; z-index: 1; transform: translateX(-50%); font-size: 2rem; }
+.fair-racing__player { top: 82%; font-size: 2.5rem; }
+.fair-racing__controls { display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1rem; color: #fff; }
+.leslie-fair__message { margin: 0; padding: 1rem; background: #fff0f6; color: #86345a; text-align: center; font-weight: 800; }
+
+@media (max-width: 600px) {
+  .leslie-fair__hud { align-items: flex-start; }
+  .leslie-fair__hud strong { flex-basis: 100%; }
+  .leslie-fair__arena, .fair-racing__track { min-height: 330px; }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import leslieImage from '../../images/leslie.png'
+import LeslieFair from './LeslieFair'
 import './LeslieProfile.css'
 
 interface LeslieProfileData {
@@ -121,10 +122,7 @@ function LeslieProfile() {
             </div>
           </section>
 
-          <section className="leslie-hobbies">
-            <p className="leslie-kicker">Feria de juegos</p>
-            <a className="leslie-play-link" href="/integrantes/Leslie.html#gameArea">Abrir los minijuegos</a>
-          </section>
+          <LeslieFair />
         </main>
       )}
 

@@ -29,7 +29,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: resolve(projectDirectory, 'index.html'),
-        fair: resolve(projectDirectory, 'integrantes/Leslie.html'),
       },
     },
   },

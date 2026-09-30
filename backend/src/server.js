@@ -2,6 +2,7 @@ import express from 'express'
 
 const app = express()
 const port = Number(process.env.PORT) || 3000
+const leslieScores = []
 
 app.disable('x-powered-by')
 app.use(express.json())
@@ -68,6 +69,22 @@ app.get('/api/members/leslie', (_request, response) => {
       { title: 'Ir a la iglesia', description: 'Es una parte importante de mi vida.' },
     ],
   })
+})
+
+app.get('/api/members/leslie/scores', (_request, response) => {
+  response.json({ scores: leslieScores.slice(-20).reverse() })
+})
+
+app.post('/api/members/leslie/scores', (request, response) => {
+  const { game, score, tickets } = request.body ?? {}
+  if (typeof game !== 'string' || !Number.isFinite(score) || !Number.isFinite(tickets) || score < 0 || tickets < 0) {
+    response.status(400).json({ error: 'Resultado de juego inválido.' })
+    return
+  }
+
+  const result = { game, score, tickets, createdAt: new Date().toISOString() }
+  leslieScores.push(result)
+  response.status(201).json(result)
 })
 
 app.get('/api/members/pablo', (_request, response) => {

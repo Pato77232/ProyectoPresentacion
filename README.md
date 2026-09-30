@@ -1,6 +1,6 @@
 # Los Backyardigans
 
-Aplicación de presentación del equipo de Ingeniería de Software de la UTA. La portada y los perfiles están desarrollados con React, TypeScript y Vite; Express sirve los datos de perfil. La feria de Leslie conserva sus cinco minijuegos en una página independiente.
+Aplicación de presentación del equipo de Ingeniería de Software de la UTA. La portada, los perfiles y los cinco minijuegos de Leslie están desarrollados con React, TypeScript y Vite; Express sirve los datos de perfil y registra los resultados de la feria.
 
 ## Requisitos
 
@@ -33,11 +33,11 @@ npm --prefix fronted_presentacion run lint
 npm --prefix fronted_presentacion run build
 ```
 
-La salida de producción queda en `fronted_presentacion/dist`. Incluye la aplicación React y `/integrantes/Leslie.html`, que contiene los minijuegos de feria aún no migrados.
+La salida de producción queda en `fronted_presentacion/dist` e incluye únicamente la aplicación React.
 
 ## Versión 3.0.0
 
-Release mayor de la migración a React y Node.js: perfiles React, API de perfiles, build centrado en la aplicación actual y retiro de páginas y recursos sustituidos. La feria de minijuegos de Leslie permanece como excepción funcional.
+Release mayor de la migración a React y Node.js: perfiles React, cinco minijuegos React para Leslie, API de perfiles y resultados, build unificado y retiro de páginas y recursos sustituidos.
 
 ## Integrantes
 

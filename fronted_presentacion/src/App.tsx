@@ -8,44 +8,28 @@ import shirleyImage from '../../images/shirley.jpg'
 import EdwinProfile from './EdwinProfile'
 import DavidProfile from './DavidProfile'
 import PabloProfile from './PabloProfile'
+import ShirleyProfile from './ShirleyProfile'
 import './App.css'
 
 const members = [
-  { id: 'shirley', name: 'Shirley Amaguaña', alias: 'Tasha', role: 'La Diseñadora', image: shirleyImage, profile: '/integrantes/shirley.html' },
+  { id: 'shirley', name: 'Shirley Amaguaña', alias: 'Tasha', role: 'La Diseñadora', image: shirleyImage, profile: '#perfil-shirley' },
   { id: 'edwin', name: 'Edwin Caraguay', alias: 'Tyrone', role: 'El Proyectado', image: edwinImage, profile: '#perfil-edwin' },
   { id: 'leslie', name: 'Leslie Coello', alias: 'Uniqua', role: 'La Pulga', image: leslieImage, profile: '/integrantes/Leslie.html' },
   { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '#perfil-david' },
-  { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '/integrantes/Pablo.html' },
-  { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '/integrantes/David.html' },
   { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '#perfil-pablo' },
 ]
 
-function getProfileRoute() {
-  const hash = window.location.hash
-  return hash === '#perfil-edwin' || hash === '#perfil-pablo' ? hash.slice(1) : ''
-}
-
 function App() {
-  const [currentProfile, setCurrentProfile] = useState(() => window.location.hash)
-  const isEdwinProfile = currentProfile === '#perfil-edwin'
-  const isDavidProfile = currentProfile === '#perfil-david'
+  const [profileRoute, setProfileRoute] = useState(() => window.location.hash)
 
   useEffect(() => {
-    const updateRoute = () => setCurrentProfile(window.location.hash)
-  const [profileRoute, setProfileRoute] = useState(getProfileRoute)
-
-  useEffect(() => {
-    const updateRoute = () => {
-      const route = getProfileRoute()
-      if (route || !window.location.hash) setProfileRoute(route)
-    }
+    const updateRoute = () => setProfileRoute(window.location.hash)
     window.addEventListener('hashchange', updateRoute)
     return () => window.removeEventListener('hashchange', updateRoute)
   }, [])
 
   useEffect(() => {
-    if (isEdwinProfile || isDavidProfile) return
-    if (profileRoute === 'perfil-edwin' || profileRoute === 'perfil-pablo') return
+    if (profileRoute) return
 
     const rows = document.querySelectorAll<HTMLElement>('.member-row')
     const observer = new IntersectionObserver((entries) => {
@@ -59,14 +43,12 @@ function App() {
 
     rows.forEach((row) => observer.observe(row))
     return () => observer.disconnect()
-  }, [isEdwinProfile, isDavidProfile])
-
-  if (isEdwinProfile) return <EdwinProfile />
-  if (isDavidProfile) return <DavidProfile />
   }, [profileRoute])
 
-  if (profileRoute === 'perfil-edwin') return <EdwinProfile />
-  if (profileRoute === 'perfil-pablo') return <PabloProfile />
+  if (profileRoute === '#perfil-shirley') return <ShirleyProfile />
+  if (profileRoute === '#perfil-edwin') return <EdwinProfile />
+  if (profileRoute === '#perfil-david') return <DavidProfile />
+  if (profileRoute === '#perfil-pablo') return <PabloProfile />
 
   return (
     <>

@@ -6,6 +6,7 @@ import leslieImage from '../../images/leslie.png'
 import pabloImage from '../../images/pabloFoto.jpeg'
 import shirleyImage from '../../images/shirley.jpg'
 import EdwinProfile from './EdwinProfile'
+import PabloProfile from './PabloProfile'
 import './App.css'
 
 const members = [
@@ -13,20 +14,28 @@ const members = [
   { id: 'edwin', name: 'Edwin Caraguay', alias: 'Tyrone', role: 'El Proyectado', image: edwinImage, profile: '#perfil-edwin' },
   { id: 'leslie', name: 'Leslie Coello', alias: 'Uniqua', role: 'La Pulga', image: leslieImage, profile: '/integrantes/Leslie.html' },
   { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '/integrantes/David.html' },
-  { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '/integrantes/Pablo.html' },
+  { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '#perfil-pablo' },
 ]
 
+function getProfileRoute() {
+  const hash = window.location.hash
+  return hash === '#perfil-edwin' || hash === '#perfil-pablo' ? hash.slice(1) : ''
+}
+
 function App() {
-  const [isEdwinProfile, setIsEdwinProfile] = useState(() => window.location.hash === '#perfil-edwin')
+  const [profileRoute, setProfileRoute] = useState(getProfileRoute)
 
   useEffect(() => {
-    const updateRoute = () => setIsEdwinProfile(window.location.hash === '#perfil-edwin')
+    const updateRoute = () => {
+      const route = getProfileRoute()
+      if (route || !window.location.hash) setProfileRoute(route)
+    }
     window.addEventListener('hashchange', updateRoute)
     return () => window.removeEventListener('hashchange', updateRoute)
   }, [])
 
   useEffect(() => {
-    if (isEdwinProfile) return
+    if (profileRoute === 'perfil-edwin' || profileRoute === 'perfil-pablo') return
 
     const rows = document.querySelectorAll<HTMLElement>('.member-row')
     const observer = new IntersectionObserver((entries) => {
@@ -40,9 +49,10 @@ function App() {
 
     rows.forEach((row) => observer.observe(row))
     return () => observer.disconnect()
-  }, [isEdwinProfile])
+  }, [profileRoute])
 
-  if (isEdwinProfile) return <EdwinProfile />
+  if (profileRoute === 'perfil-edwin') return <EdwinProfile />
+  if (profileRoute === 'perfil-pablo') return <PabloProfile />
 
   return (
     <>

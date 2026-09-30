@@ -16,7 +16,7 @@ function ShirleyProfile() {
   return (
     <div className="shirley-profile">
       <header className="shirley-nav">
-        <a href="/fronted_presentacion/" className="shirley-nav__back"><span aria-hidden="true">←</span> Volver al equipo</a>
+        <a href="/" className="shirley-nav__back"><span aria-hidden="true">←</span> Volver al equipo</a>
         <span className="shirley-nav__team">Los Backyardigans <span aria-hidden="true">/</span> Perfil</span>
       </header>
 

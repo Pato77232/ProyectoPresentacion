@@ -48,6 +48,28 @@ app.get('/api/members/david', (_request, response) => {
       { title: 'Deporte', description: 'Mantener mi cuerpo y mi mente en forma.' },
       { title: 'Entretenimiento', description: 'Disfruto de las películas y las series.' },
       { title: 'Programación', description: 'Mantengo mi mente activa y aprendiendo constantemente.' },
+    ],
+  })
+})
+
+app.get('/api/members/leslie', (_request, response) => {
+  response.json({
+    name: 'Leslie Coello',
+    mascot: 'Uniqua',
+    age: 20,
+    role: 'Estudiante de Ingeniería en Software',
+    course: 'Ingeniería en Software · 4to semestre',
+    summary: 'Me encantan la lógica, programar proyectos y el desarrollo web.',
+    about: 'Estudio Ingeniería en Software y disfruto aprender, crear proyectos y expresarme a través de la música, el canto y el baile.',
+    interests: ['Desarrollo web', 'Programación', 'Canto', 'Baile', 'Pasta'],
+    hobbies: [
+      { title: 'Cantar y bailar', description: 'Disfruto expresarme con la música, el canto y el baile.' },
+      { title: 'La pasta', description: 'Es mi comida favorita.' },
+      { title: 'Ir a la iglesia', description: 'Es una parte importante de mi vida.' },
+    ],
+  })
+})
+
 app.get('/api/members/pablo', (_request, response) => {
   response.json({
     name: 'Pablo Toapanta',

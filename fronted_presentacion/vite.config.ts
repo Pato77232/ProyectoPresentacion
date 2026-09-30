@@ -1,6 +1,5 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
-import { cpSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -23,27 +22,14 @@ export default defineConfig({
       'react-dom': resolve(frontendDirectory, 'node_modules/react-dom'),
     },
   },
-  plugins: [
-    react(),
-    {
-      name: 'copy-legacy-scripts',
-      apply: 'build',
-      closeBundle() {
-        cpSync(resolve(projectDirectory, 'script'), resolve(frontendDirectory, 'dist/script'), { recursive: true })
-      },
-    },
-  ],
+  plugins: [react()],
   build: {
     outDir: resolve(frontendDirectory, 'dist'),
     emptyOutDir: true,
     rollupOptions: {
       input: {
         home: resolve(projectDirectory, 'index.html'),
-        app: resolve(frontendDirectory, 'index.html'),
-        shirley: resolve(projectDirectory, 'integrantes/shirley.html'),
-        leslie: resolve(projectDirectory, 'integrantes/Leslie.html'),
-        david: resolve(projectDirectory, 'integrantes/David.html'),
-        pablo: resolve(projectDirectory, 'integrantes/Pablo.html'),
+        fair: resolve(projectDirectory, 'integrantes/Leslie.html'),
       },
     },
   },

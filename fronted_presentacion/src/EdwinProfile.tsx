@@ -52,7 +52,7 @@ function EdwinProfile() {
   return (
     <div className="edwin-page">
       <nav className="edwin-nav" aria-label="Navegación del perfil">
-        <a href="/fronted_presentacion/" className="edwin-back"><span aria-hidden="true">←</span> Volver al equipo</a>
+        <a href="/" className="edwin-back"><span aria-hidden="true">←</span> Volver al equipo</a>
         <span>LOS BACKYARDIGANS <span aria-hidden="true">/</span> PERFIL</span>
       </nav>
 

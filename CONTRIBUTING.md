@@ -19,7 +19,7 @@ git pull origin develop
 | `main` | Código estable en producción. | — |
 | `develop` | Integración de features revisados. | — |
 | `feature/*` | Nueva funcionalidad o página. | `feature/estructura-seccion-<nombre>-html-css` |
-| `release/*` | Preparación de una versión. | `release/1.0.0` |
+| `release/*` | Preparación de una versión. | `release/3.0.0` |
 | `hotfix/*` | Corrección urgente sobre `main`. | `hotfix/error-tipografico` |
 ## Flujo de trabajo (GitFlow)
 - `main`: Código en producción (solo merges desde `release` o `hotfix`).

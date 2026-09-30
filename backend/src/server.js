@@ -48,6 +48,23 @@ app.get('/api/members/david', (_request, response) => {
       { title: 'Deporte', description: 'Mantener mi cuerpo y mi mente en forma.' },
       { title: 'Entretenimiento', description: 'Disfruto de las películas y las series.' },
       { title: 'Programación', description: 'Mantengo mi mente activa y aprendiendo constantemente.' },
+app.get('/api/members/pablo', (_request, response) => {
+  response.json({
+    name: 'Pablo Toapanta',
+    mascot: 'Pablo',
+    age: 19,
+    role: 'Desarrollador en formación',
+    course: 'Ingeniería de Software · 4to semestre',
+    location: 'Ambato, Ecuador',
+    email: 'ptoapanta1032@uta.edu.ec',
+    phone: '+593 987 476 259',
+    summary: 'Me apasionan las ciencias de la computación, la tecnología y el aprendizaje continuo.',
+    about: 'Estudio Ingeniería de Software y disfruto entender cómo funcionan las cosas por dentro para construir soluciones con lógica y creatividad. Mi objetivo es fortalecer mis bases en informática y contribuir con proyectos que importen.',
+    interests: ['Ciencias de la Computación', 'Redes', 'Bases de Datos', 'Desarrollo Web', 'Metodologías Ágiles'],
+    hobbies: [
+      { title: 'Videojuegos', description: 'Me gusta explorar mundos virtuales, desde RPG hasta retos competitivos.' },
+      { title: 'Deporte', description: 'Mantenerme activo me ayuda a cultivar energía y disciplina.' },
+      { title: 'Aprender', description: 'Siempre hay una nueva herramienta, idea o tecnología por descubrir.' },
     ],
   })
 })

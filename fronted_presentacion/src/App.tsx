@@ -1,120 +1,110 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { useEffect, useState } from 'react'
+import heroImage from '../../images/backyardigans.jpg'
+import davidImage from '../../images/fotoDavid.jpeg'
+import edwinImage from '../../images/EdwinFoto.jpeg'
+import leslieImage from '../../images/leslie.png'
+import pabloImage from '../../images/pabloFoto.jpeg'
+import shirleyImage from '../../images/shirley.jpg'
+import EdwinProfile from './EdwinProfile'
+import DavidProfile from './DavidProfile'
+import PabloProfile from './PabloProfile'
+import ShirleyProfile from './ShirleyProfile'
+import LeslieProfile from './LeslieProfile'
 import './App.css'
 
+const members = [
+  { id: 'shirley', name: 'Shirley Amaguaña', alias: 'Tasha', role: 'La Diseñadora', image: shirleyImage, profile: '#perfil-shirley' },
+  { id: 'edwin', name: 'Edwin Caraguay', alias: 'Tyrone', role: 'El Proyectado', image: edwinImage, profile: '#perfil-edwin' },
+  { id: 'leslie', name: 'Leslie Coello', alias: 'Uniqua', role: 'La Pulga', image: leslieImage, profile: '#perfil-leslie' },
+  { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '#perfil-david' },
+  { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '#perfil-pablo' },
+]
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [profileRoute, setProfileRoute] = useState(() => window.location.hash)
+
+  useEffect(() => {
+    const updateRoute = () => setProfileRoute(window.location.hash)
+    window.addEventListener('hashchange', updateRoute)
+    return () => window.removeEventListener('hashchange', updateRoute)
+  }, [])
+
+  useEffect(() => {
+    if (profileRoute) return
+
+    const rows = document.querySelectorAll<HTMLElement>('.member-row')
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.18 })
+
+    rows.forEach((row) => observer.observe(row))
+    return () => observer.disconnect()
+  }, [profileRoute])
+
+  if (profileRoute === '#perfil-shirley') return <ShirleyProfile />
+  if (profileRoute === '#perfil-edwin') return <EdwinProfile />
+  if (profileRoute === '#perfil-leslie') return <LeslieProfile />
+  if (profileRoute === '#perfil-david') return <DavidProfile />
+  if (profileRoute === '#perfil-pablo') return <PabloProfile />
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <header className="topbar">
+        <a className="topbar__brand" href="#inicio">Los Backyardigans</a>
+        <a className="topbar__link" href="#integrantes">Conoce al equipo <span aria-hidden="true">↓</span></a>
+      </header>
 
-      <div className="ticks"></div>
+      <main>
+        <section className="hero" id="inicio" style={{ backgroundImage: `linear-gradient(180deg, rgba(17, 39, 40, .12) 5%, rgba(17, 39, 40, .16) 44%, rgba(17, 39, 40, .92) 100%), url("${heroImage}")` }}>
+          <div className="hero__content">
+            <p className="hero__eyebrow">Proyecto universitario · UTA</p>
+            <h1>Los Backyardigans</h1>
+            <p className="hero__subtitle">Manejo y Configuración de Software</p>
+            <nav className="hero__members" aria-label="Integrantes del equipo">
+              {members.map((member) => (
+                <a className={`hero-member hero-member--${member.id}`} href={`#integrante-${member.id}`} key={member.id}>
+                  {member.name.split(' ')[0]} <span>{member.name.split(' ').slice(1).join(' ')}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+          <a className="scroll-hint" href="#integrantes"><span aria-hidden="true">↓</span> Nuestro equipo</a>
+        </section>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <section className="members" id="integrantes" aria-labelledby="members-title">
+          <header className="members__heading">
+            <p className="section-kicker">Cinco integrantes · Un mismo equipo</p>
+            <h2 id="members-title">Nuestro equipo</h2>
+          </header>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+          {members.map((member, index) => (
+            <article className={`member-row member-row--${member.id}`} id={`integrante-${member.id}`} key={member.id}>
+              <div className="member-row__inner">
+                <div className="member-row__copy">
+                  <p className="member-row__eyebrow">Integrante 0{index + 1} <span>· {member.alias}</span></p>
+                  <h3>{member.name}</h3>
+                  <p className="member-row__role">{member.role}</p>
+                  <a className="member-row__link" href={member.profile}>Conocer perfil <span aria-hidden="true">↗</span></a>
+                </div>
+                <div className="member-row__portrait">
+                  <img src={member.image} alt={`Retrato de ${member.name}`} loading="lazy" />
+                  <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+      </main>
+
+      <footer className="footer">
+        <p>Manejo y Configuración de Software · UTA · 2026</p>
+        <a href="#inicio">Volver arriba ↑</a>
+      </footer>
     </>
   )
 }

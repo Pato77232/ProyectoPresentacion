@@ -1,28 +1,79 @@
+# =====================================================================
+# .gitignore del proyecto "Los Backyardigans"
+# Cubre el sitio HTML original, el frontend React (fronted_presentation/)
+# y el backend Node.js (backend/).
+# =====================================================================
+
 # ===== Node.js =====
-# Dependencias instaladas (no se suben porque se regeneran con npm install)
+# Dependencias instaladas; pesan mucho y se regeneran con npm install
 node_modules/
-# Archivos de entorno (contienen secretos)
+
+# Registros de errores de los gestores de paquetes
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cachés de herramientas y reportes de pruebas; se regeneran
+.eslintcache
+.cache/
+coverage/
+
+# ===== Variables de entorno =====
+# Contienen claves y contraseñas; nunca deben llegar a GitHub.
+# La plantilla .env.example, sin valores reales, sí se puede subir.
 .env
-# Carpeta de distribución (generada en build)
+.env.*
+!.env.example
+
+# ===== React + Vite =====
+# Resultado de npm run build; se regenera al compilar
 dist/
-
-# ===== Python =====
-# Archivos compilados (se regeneran)
-__pycache__/
-*.pyc
-# Entorno virtual (cada quien crea el suyo)
-.venv/
-venv/
-
-# ===== Java =====
-# Archivos compilados
-*.class
-# Carpeta de build de Maven/Gradle
-target/
+dist-ssr/
 build/
-.gradle/
 
-# ===== Sistema Operativo =====
+# Caché y configuraciones locales de Vite
+.vite/
+*.local
+
+# ===== TypeScript =====
+# Archivos de caché de compilación
+*.tsbuildinfo
+
+# ===== Registros =====
+# Archivos de registro generados al ejecutar el backend
+logs/
+*.log
+
+# ===== Editores y sistema operativo =====
+# Configuración personal de cada editor y archivos del sistema
+.vscode/
+.idea/
+*.swp
 .DS_Store
 Thumbs.db
 
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

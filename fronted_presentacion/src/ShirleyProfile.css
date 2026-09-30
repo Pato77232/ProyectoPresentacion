@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+.shirley-profile {
+  --shirley-red: #d62828;
+  --shirley-yellow: #ffcc00;
+  --shirley-ink: #4a2a1f;
+  --shirley-muted: #76594d;
+  --shirley-paper: #fff6dd;
+  min-height: 100vh;
+  background-color: var(--shirley-paper);
+  background-image: radial-gradient(rgba(255, 204, 0, .45) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  color: var(--shirley-ink);
+  font-family: 'Fredoka', 'Trebuchet MS', sans-serif;
+  line-height: 1.6;
+}
+
+.shirley-profile *,
+.shirley-profile *::before,
+.shirley-profile *::after { box-sizing: border-box; }
+.shirley-profile a { color: inherit; }
+.shirley-profile img { display: block; max-width: 100%; }
+.shirley-profile h1,
+.shirley-profile h2,
+.shirley-profile h3,
+.shirley-profile p { overflow-wrap: anywhere; }
+
+.shirley-nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem max(1.25rem, calc((100vw - 1120px) / 2));
+  border-bottom: 4px solid var(--shirley-yellow);
+  background: var(--shirley-red);
+  color: #fff;
+  box-shadow: 0 3px 0 var(--shirley-ink);
+}
+
+.shirley-nav__back { display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; text-decoration: none; }
+.shirley-nav__back:hover { text-decoration: underline; text-underline-offset: 4px; }
+.shirley-nav__team { color: #ffeaa1; font-size: .76rem; font-weight: 600; text-transform: uppercase; }
+.shirley-nav__team span { padding-inline: .3rem; color: #fff; }
+.shirley-main { width: min(100% - 2.5rem, 1120px); margin-inline: auto; }
+
+.shirley-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 6rem);
+  min-height: 660px;
+  padding-block: 4rem;
+}
+
+.shirley-kicker { margin: 0 0 .6rem; color: var(--shirley-red); font-size: .76rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.shirley-hero h1 { max-width: 12ch; margin: 0; font-size: clamp(3.2rem, 7vw, 5.7rem); font-weight: 700; line-height: .98; }
+.shirley-hero h1 span { display: block; color: var(--shirley-red); text-shadow: 2px 2px 0 var(--shirley-yellow); }
+.shirley-role { margin: 1.25rem 0 .75rem; color: #a24916; font-size: 1.2rem; font-weight: 600; }
+.shirley-bio { max-width: 58ch; margin: 0; font-size: 1.05rem; line-height: 1.75; }
+.shirley-bio strong { color: var(--shirley-red); }
+.shirley-play { display: inline-flex; align-items: center; gap: .55rem; min-height: 48px; margin-top: 1.6rem; padding: .65rem 1rem; border: 2px solid var(--shirley-ink); background: var(--shirley-yellow); box-shadow: 4px 4px 0 var(--shirley-red); font-weight: 700; text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
+.shirley-play:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--shirley-red); }
+
+.shirley-portrait { padding: 1.4rem; border: 2px solid var(--shirley-ink); background: #fff; box-shadow: 8px 8px 0 var(--shirley-yellow); text-align: center; }
+.shirley-portrait__images { position: relative; width: min(100%, 250px); aspect-ratio: 1; margin: 0 auto 1rem; overflow: hidden; border: 4px solid var(--shirley-red); border-radius: 50%; background: var(--shirley-yellow); }
+.shirley-portrait__images img { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity .25s ease; }
+.shirley-portrait__photo { object-fit: cover; }
+.shirley-portrait__mascot { padding: 1rem; background: var(--shirley-yellow); object-fit: contain; opacity: 0; }
+.shirley-portrait__images:hover .shirley-portrait__mascot,
+.shirley-portrait__images:focus-within .shirley-portrait__mascot { opacity: 1; }
+.shirley-portrait__images:hover .shirley-portrait__photo { opacity: 0; }
+.shirley-portrait h2 { margin: .4rem 0 0; color: var(--shirley-red); font-size: 1.55rem; }
+.shirley-portrait > p { margin: .15rem 0 1rem; color: var(--shirley-muted); font-weight: 500; }
+.shirley-stats { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border-block: 1px solid #ead9b2; }
+.shirley-stats div { display: grid; gap: .15rem; padding: .7rem; }
+.shirley-stats div + div { border-left: 1px solid #ead9b2; }
+.shirley-stats dt { color: var(--shirley-muted); font-size: .72rem; font-weight: 600; text-transform: uppercase; }
+.shirley-stats dd { margin: 0; color: var(--shirley-red); font-size: 1.35rem; font-weight: 700; }
+.shirley-portrait__tag { display: inline-block; margin-top: .8rem; color: #a24916; font-size: .84rem; font-weight: 600; }
+
+.shirley-about { padding-block: 4rem 5rem; border-top: 1px solid rgba(74, 42, 31, .2); }
+.shirley-section-heading { max-width: 760px; margin: 0 auto 2rem; text-align: center; }
+.shirley-section-heading h2 { margin: 0; color: var(--shirley-red); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+.shirley-section-heading > p:last-child { margin: .7rem 0 0; color: var(--shirley-muted); }
+.shirley-interests { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.shirley-interest { min-width: 0; padding: 1.2rem; border: 1px solid rgba(74, 42, 31, .45); background: rgba(255, 255, 255, .8); box-shadow: 3px 3px 0 var(--shirley-yellow); transition: transform .18s ease; }
+.shirley-interest:hover { transform: translateY(-3px); }
+.shirley-interest__icon { font-size: 1.8rem; }
+.shirley-interest h3 { margin: .3rem 0; color: var(--shirley-red); font-size: 1.15rem; }
+.shirley-interest p { margin: 0; font-size: .92rem; line-height: 1.55; }
+
+.shirley-game { padding-block: 4rem 5rem; border-top: 1px solid rgba(74, 42, 31, .2); scroll-margin-top: 5rem; }
+.shirley-game .shirley-section-heading { margin-bottom: 1.5rem; }
+.shirley-game__panel { padding: 1.2rem; border: 2px solid var(--shirley-ink); background: #fff; box-shadow: 6px 6px 0 var(--shirley-yellow); }
+.shirley-game__toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; padding: .75rem 1rem; border: 1px solid #ead9b2; background: var(--shirley-paper); }
+.shirley-game__score { margin: 0; font-weight: 600; }
+.shirley-game__score strong,
+.shirley-game__score span { color: var(--shirley-red); }
+.shirley-game__reset { min-height: 40px; padding: .45rem .8rem; border: 2px solid var(--shirley-ink); background: var(--shirley-red); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+.shirley-game__reset:hover { background: #b31e1e; }
+.shirley-game__layout { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; }
+.shirley-game__canvas { display: block; width: min(100%, 400px); height: auto; border: 3px solid var(--shirley-ink); border-radius: 12px; background: #fffdf0; box-shadow: 3px 3px 0 var(--shirley-yellow); cursor: crosshair; touch-action: none; }
+.shirley-game__canvas:focus-visible { outline-color: var(--shirley-red); }
+.shirley-active-character { width: min(210px, 100%); padding: 1rem; border: 1px solid var(--shirley-ink); background: var(--shirley-paper); text-align: center; }
+.shirley-active-character h3 { margin: 0 0 .5rem; font-size: 1rem; }
+.shirley-active-character img { width: 150px; height: 150px; margin-inline: auto; object-fit: contain; }
+.shirley-active-character p { margin: .4rem 0 0; color: var(--shirley-red); font-size: 1.2rem; font-weight: 700; }
+.shirley-footer { padding: 1.2rem; background: var(--shirley-red); color: #fff; font-size: .9rem; font-weight: 500; text-align: center; }
+
+@media (max-width: 760px) {
+  .shirley-nav { padding-inline: 1rem; }
+  .shirley-nav__team { font-size: .65rem; text-align: right; }
+  .shirley-main { width: min(100% - 2rem, 560px); }
+  .shirley-hero { grid-template-columns: 1fr; gap: 2rem; min-height: auto; padding-block: 3.5rem; }
+  .shirley-hero h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
+  .shirley-portrait { width: min(100%, 390px); justify-self: center; }
+  .shirley-portrait__images { width: 210px; }
+  .shirley-interests { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shirley-game__panel { padding: .75rem; }
+  .shirley-game__toolbar { align-items: flex-start; }
+}
+
+@media (max-width: 460px) {
+  .shirley-nav__team { max-width: 9rem; }
+  .shirley-interests { grid-template-columns: 1fr; }
+  .shirley-game__toolbar { flex-direction: column; }
+  .shirley-game__reset { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shirley-profile *,
+  .shirley-profile *::before,
+  .shirley-profile *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

@@ -1,79 +1,36 @@
-# =====================================================================
-# .gitignore del proyecto "Los Backyardigans"
-# Cubre el sitio HTML original, el frontend React (fronted_presentation/)
-# y el backend Node.js (backend/).
-# =====================================================================
-
-# ===== Node.js =====
-# Dependencias instaladas; pesan mucho y se regeneran con npm install
+# Dependencias de Node.js
 node_modules/
 
-# Registros de errores de los gestores de paquetes
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Cachés de herramientas y reportes de pruebas; se regeneran
-.eslintcache
-.cache/
-coverage/
-
-# ===== Variables de entorno =====
-# Contienen claves y contraseñas; nunca deben llegar a GitHub.
-# La plantilla .env.example, sin valores reales, sí se puede subir.
-.env
-.env.*
-!.env.example
-
-# ===== React + Vite =====
-# Resultado de npm run build; se regenera al compilar
-dist/
-dist-ssr/
-build/
-
-# Caché y configuraciones locales de Vite
-.vite/
-*.local
-
-# ===== TypeScript =====
-# Archivos de caché de compilación
-*.tsbuildinfo
-
-# ===== Registros =====
-# Archivos de registro generados al ejecutar el backend
-logs/
-*.log
-
-# ===== Editores y sistema operativo =====
-# Configuración personal de cada editor y archivos del sistema
-.vscode/
-.idea/
-*.swp
-.DS_Store
-Thumbs.db
-
-# Logs
-logs
-*.log
+# Registros
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+logs/
+*.log
 
-node_modules
-dist
-dist-ssr
+# Cachés y reportes generados
+.eslintcache
+.cache/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Variables locales; compartir únicamente plantillas sin secretos
+.env 
+#solo por si acaso en algun momento se use una bd y/o api que necesite credenciales
+
+# Salidas de compilación
+dist/
+dist-ssr/
+build/
 *.local
 
-# Editor directories and files
+# Editores y sistema operativo
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
+.idea/
 *.sw?
+.DS_Store
+Thumbs.db

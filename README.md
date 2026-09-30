@@ -52,7 +52,6 @@ El proyecto incluye:
 1. Clona el repositorio:
 git clone https://github.com/Pato77232/ProyectoPresentacion.git
 
-text
 2. Abre `index.html` en el navegador.
 
 ### Frontend React 

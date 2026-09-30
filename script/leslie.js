@@ -1,21 +1,3 @@
-// ==================== CONFIGURACIÓN DE AUDIO ====================
-const bgAudio = document.getElementById('bgRaceAudio');
-const btnToggleSound = document.getElementById('btnToggleSound');
-let soundEnabled = true;
-
-if (btnToggleSound) {
-  btnToggleSound.addEventListener('click', () => {
-    soundEnabled = !soundEnabled;
-    if (soundEnabled) {
-      btnToggleSound.textContent = '🎵 Música de Feria: ON';
-      if (currentActiveGame && bgAudio) bgAudio.play().catch(() => {});
-    } else {
-      btnToggleSound.textContent = '🔇 Música de Feria: OFF';
-      if (bgAudio) bgAudio.pause();
-    }
-  });
-}
-
 // ==================== SISTEMA DE TICKETS GLOBALES ====================
 let totalTickets = 0;
 const totalTicketsCount = document.getElementById('totalTicketsCount');
@@ -32,7 +14,7 @@ const gameViewportBox = document.getElementById('gameViewportBox');
 const currentMinigameTitle = document.getElementById('currentMinigameTitle');
 const gameTimer = document.getElementById('gameTimer');
 const gameScore = document.getElementById('gameScore');
-const btnReturnFair = document.getElementById('btnReturnFair');
+const btnReturnFair = document.getElementById('btnReturnToFair');
 
 let currentActiveGame = null;
 let gameInterval = null;
@@ -74,11 +56,6 @@ function launchMinigame(type) {
   gameTimeRemaining = 30;
   if (gameScore) gameScore.textContent = '0';
   if (gameTimer) gameTimer.textContent = '30s';
-
-  if (soundEnabled && bgAudio) {
-    bgAudio.currentTime = 0;
-    bgAudio.play().catch(() => {});
-  }
 
   // Inicializar minijuego
   switch (type) {

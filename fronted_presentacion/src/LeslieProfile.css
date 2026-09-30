@@ -1,0 +1,232 @@
+.leslie-page {
+  min-height: 100vh;
+  background: #fff8fb;
+  color: #30232a;
+  font-family: 'Nunito', sans-serif;
+}
+
+.leslie-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+  background: #fff;
+  color: #63334a;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.leslie-back {
+  color: inherit;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+
+.leslie-hero,
+.leslie-about,
+.leslie-hobbies {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+.leslie-hero {
+  min-height: 75vh;
+  display: grid;
+  grid-template-columns: 1fr .9fr;
+  align-items: center;
+  gap: 3rem;
+  padding-block: 4rem;
+}
+
+.leslie-kicker {
+  color: #b43c72;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.leslie-hero h1,
+.leslie-about h2,
+.leslie-hobbies h2 {
+  font-family: 'Baloo 2', sans-serif;
+  line-height: 1.05;
+}
+
+.leslie-hero h1 {
+  margin: .5rem 0;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+.leslie-hero h1 span {
+  color: #b43c72;
+}
+
+.leslie-lead {
+  max-width: 38rem;
+  color: #65555d;
+  font-size: 1.15rem;
+}
+
+.leslie-play-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .75rem 1.1rem;
+  border-radius: 999px;
+  background: #b43c72;
+  color: white;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.leslie-portrait {
+  margin: 0;
+  text-align: center;
+}
+
+.leslie-portrait img {
+  width: min(100%, 420px);
+  max-height: 520px;
+  border-radius: 48% 48% 1rem 1rem;
+  object-fit: cover;
+}
+
+.leslie-portrait figcaption {
+  margin-top: .75rem;
+  color: #b43c72;
+  font-weight: 800;
+}
+
+.leslie-about {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 3rem;
+  padding-block: 4rem;
+  border-top: 1px solid #f0d9e3;
+}
+
+.leslie-about h2,
+.leslie-hobbies h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.leslie-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.5rem;
+}
+
+.leslie-interests span {
+  padding: .45rem .8rem;
+  border-radius: 999px;
+  background: #ffedf4;
+  color: #86345a;
+  font-weight: 700;
+}
+
+.leslie-facts {
+  margin: 0;
+}
+
+.leslie-facts div {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0d9e3;
+}
+
+.leslie-facts dt {
+  color: #8a6c7a;
+  font-size: .8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.leslie-facts dd {
+  display: grid;
+  gap: .25rem;
+  margin: .25rem 0 0;
+  font-weight: 700;
+}
+
+.leslie-hobbies {
+  padding-block: 3rem 5rem;
+}
+
+.leslie-hobbies__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.leslie-hobbies__list article {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #ffedf4;
+}
+
+.leslie-hobbies__list article > span {
+  color: #b43c72;
+  font-weight: 900;
+}
+
+.leslie-hobbies__list h3 {
+  margin-bottom: .4rem;
+}
+
+.leslie-feedback {
+  width: min(700px, 90%);
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.leslie-feedback button {
+  padding: .6rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: #b43c72;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.leslie-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 5%;
+  background: #30232a;
+  color: #fff;
+}
+
+.leslie-footer a {
+  color: inherit;
+}
+
+@media (max-width: 700px) {
+  .leslie-hero,
+  .leslie-about {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .leslie-hero {
+    min-height: auto;
+    padding-block: 3rem;
+  }
+
+  .leslie-portrait img {
+    max-height: 420px;
+  }
+
+  .leslie-footer {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leslie-page {
+    scroll-behavior: auto;
+  }
+}

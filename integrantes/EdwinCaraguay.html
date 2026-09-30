@@ -25,7 +25,12 @@
     <div class="bg-grid"></div>
   </div>
 
-  <!-- Nav eliminado: la página se muestra como subpágina individual -->
+  <nav class="site-nav" aria-label="Navegación principal">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-back"><span aria-hidden="true">←</span> Volver al inicio</a>
+      <span class="nav-team">Los Backyardigans</span>
+    </div>
+  </nav>
 
   <main>
 
@@ -169,6 +174,12 @@
           <div id="chessBoard" class="chess-board" role="grid" aria-label="Tablero de ajedrez"></div>
           <div class="game__panel">
             <p class="game__status" id="gameStatus">Turno: blancas</p>
+            <div class="promotion-picker" id="promotionPicker" hidden role="group" aria-label="Selecciona la pieza para coronar">
+              <button type="button" data-piece="q" aria-label="Promover a dama">♕</button>
+              <button type="button" data-piece="r" aria-label="Promover a torre">♖</button>
+              <button type="button" data-piece="b" aria-label="Promover a alfil">♗</button>
+              <button type="button" data-piece="n" aria-label="Promover a caballo">♘</button>
+            </div>
             <button class="game__reset btn btn-ghost" id="resetButton" type="button">Reiniciar partida</button>
           </div>
         </div>
@@ -185,6 +196,7 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
   <script src="../script/edwin-caraguay.js"></script>
 </body>
 </html>

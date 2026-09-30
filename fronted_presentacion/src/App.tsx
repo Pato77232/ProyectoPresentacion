@@ -6,27 +6,30 @@ import leslieImage from '../../images/leslie.png'
 import pabloImage from '../../images/pabloFoto.jpeg'
 import shirleyImage from '../../images/shirley.jpg'
 import EdwinProfile from './EdwinProfile'
+import DavidProfile from './DavidProfile'
 import './App.css'
 
 const members = [
   { id: 'shirley', name: 'Shirley Amaguaña', alias: 'Tasha', role: 'La Diseñadora', image: shirleyImage, profile: '/integrantes/shirley.html' },
   { id: 'edwin', name: 'Edwin Caraguay', alias: 'Tyrone', role: 'El Proyectado', image: edwinImage, profile: '#perfil-edwin' },
   { id: 'leslie', name: 'Leslie Coello', alias: 'Uniqua', role: 'La Pulga', image: leslieImage, profile: '/integrantes/Leslie.html' },
-  { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '/integrantes/David.html' },
+  { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '#perfil-david' },
   { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '/integrantes/Pablo.html' },
 ]
 
 function App() {
-  const [isEdwinProfile, setIsEdwinProfile] = useState(() => window.location.hash === '#perfil-edwin')
+  const [currentProfile, setCurrentProfile] = useState(() => window.location.hash)
+  const isEdwinProfile = currentProfile === '#perfil-edwin'
+  const isDavidProfile = currentProfile === '#perfil-david'
 
   useEffect(() => {
-    const updateRoute = () => setIsEdwinProfile(window.location.hash === '#perfil-edwin')
+    const updateRoute = () => setCurrentProfile(window.location.hash)
     window.addEventListener('hashchange', updateRoute)
     return () => window.removeEventListener('hashchange', updateRoute)
   }, [])
 
   useEffect(() => {
-    if (isEdwinProfile) return
+    if (isEdwinProfile || isDavidProfile) return
 
     const rows = document.querySelectorAll<HTMLElement>('.member-row')
     const observer = new IntersectionObserver((entries) => {
@@ -40,9 +43,10 @@ function App() {
 
     rows.forEach((row) => observer.observe(row))
     return () => observer.disconnect()
-  }, [isEdwinProfile])
+  }, [isEdwinProfile, isDavidProfile])
 
   if (isEdwinProfile) return <EdwinProfile />
+  if (isDavidProfile) return <DavidProfile />
 
   return (
     <>

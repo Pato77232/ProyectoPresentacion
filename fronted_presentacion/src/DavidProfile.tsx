@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import davidImage from '../../images/fotoDavid.jpeg'
 import austinImage from '../../images/Austin.png'
-import davidStyles from '../../css/David.css?url'
-import MotoExtremeGame from './MotoExtremeGame'
+import MotoExtreme from './MotoExtreme'
+import './DavidProfile.css'
 
 type DavidProfileData = {
   name: string
@@ -30,14 +30,6 @@ function DavidProfile() {
   const loading = loadState.attempt !== attempt || loadState.status === 'loading'
   const profile = loadState.attempt === attempt && loadState.status === 'success' ? loadState.data : null
   const error = loadState.attempt === attempt && loadState.status === 'error'
-
-  useEffect(() => {
-    const stylesheet = document.createElement('link')
-    stylesheet.rel = 'stylesheet'
-    stylesheet.href = davidStyles
-    document.head.appendChild(stylesheet)
-    return () => stylesheet.remove()
-  }, [])
 
   useEffect(() => {
     const controller = new AbortController()
@@ -173,7 +165,7 @@ function DavidProfile() {
             </div>
           </section>
 
-          <MotoExtremeGame />
+          <MotoExtreme />
         </main>
       )}
 

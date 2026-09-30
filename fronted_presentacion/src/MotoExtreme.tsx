@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import motoExtremeScript from '../../script/David.js?url'
+import './MotoExtreme.css'
 
-function MotoExtremeGame() {
+function MotoExtreme() {
   const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
@@ -20,7 +21,7 @@ function MotoExtremeGame() {
   }, [])
 
   return (
-    <section id="proyecto" className="section" aria-labelledby="moto-title">
+    <section id="proyecto" className="section moto-extreme" aria-labelledby="moto-title">
       <div className="container">
         <header className="section-head">
           <h2 id="moto-title">Minijuego: Moto Extreme 2D</h2>
@@ -28,7 +29,7 @@ function MotoExtremeGame() {
         </header>
 
         <div className="game-wrap-outer">
-          <div className="game-board glass">
+          <div className="game-board">
             <header className="game-hud" aria-label="Estado de la partida">
               <div className="hud-item hud-level"><span>Nivel</span><b id="levelValue">1</b></div>
               <div className="hud-item hud-distance"><span>Distancia</span><b id="distanceValue">0 m</b></div>
@@ -83,7 +84,7 @@ function MotoExtremeGame() {
             </div>
 
             <p className="controls-hint"><kbd>←</kbd> <kbd>→</kbd> mover · <kbd>↑</kbd> <kbd>↓</kbd> girar · <kbd>Espacio</kbd> saltar · <kbd>ESC</kbd> pausa</p>
-            {loadError && <p role="alert">No fue posible cargar Moto Extreme. Recarga el perfil para intentarlo de nuevo.</p>}
+            {loadError && <p className="game-load-error" role="alert">No fue posible cargar Moto Extreme. Recarga el perfil para intentarlo de nuevo.</p>}
           </div>
         </div>
       </div>
@@ -91,4 +92,4 @@ function MotoExtremeGame() {
   )
 }
 
-export default MotoExtremeGame
+export default MotoExtreme

@@ -8,6 +8,7 @@ import shirleyImage from '../../images/shirley.jpg'
 import EdwinProfile from './EdwinProfile'
 import DavidProfile from './DavidProfile'
 import PabloProfile from './PabloProfile'
+import LeslieProfile from './LeslieProfile';
 import './App.css'
 
 const members = [
@@ -67,6 +68,7 @@ function App() {
 
   if (profileRoute === 'perfil-edwin') return <EdwinProfile />
   if (profileRoute === 'perfil-pablo') return <PabloProfile />
+  if (profileRoute === 'perfil-leslie') return <LeslieProfile />
 
   return (
     <>

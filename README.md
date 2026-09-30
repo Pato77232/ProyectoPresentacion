@@ -71,7 +71,7 @@ npm run start
 |---|---|---|
 | v1.0.0 | Página principal y páginas personales | HTML, CSS, JS |
 | v2.0.0 | Minijuegos de cada integrante | HTML, CSS, JS |
-| Siguiente | React + Node.js | React, Vite, TypeScript, Node.js |
+| v3.0.0 | React + Node.js | React, Vite, TypeScript, Node.js |
 
 ## Resumen de GitFlow
 

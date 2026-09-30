@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import './TetrisGame.css'
 
 const COLUMNS = 10
@@ -97,21 +97,21 @@ function TetrisGame() {
     }
   }
 
-  function takeType(game: Engine): PieceType {
+  const takeType = useCallback((game: Engine): PieceType => {
     if (game.bag.length === 0) game.bag = shuffledBag()
     return game.bag.pop() ?? 'T'
-  }
+  }, [])
 
-  function collides(game: Engine, shape: number[][], offsetX: number, offsetY: number) {
+  const collides = useCallback((game: Engine, shape: number[][], offsetX: number, offsetY: number) => {
     return shape.some((row, rowIndex) => row.some((cell, columnIndex) => {
       if (!cell) return false
       const x = offsetX + columnIndex
       const y = offsetY + rowIndex
       return x < 0 || x >= COLUMNS || y >= ROWS || (y >= 0 && Boolean(game.board[y][x]))
     }))
-  }
+  }, [])
 
-  function draw() {
+  const draw = useCallback(() => {
     const game = engine.current
     const canvas = boardCanvas.current
     const preview = nextCanvas.current
@@ -159,9 +159,9 @@ function TetrisGame() {
     nextPiece.shape.forEach((row, rowIndex) => row.forEach((cell, columnIndex) => {
       if (cell) previewContext.fillRect(offsetX + columnIndex * previewCell + 1, offsetY + rowIndex * previewCell + 1, previewCell - 2, previewCell - 2)
     }))
-  }
+  }, [collides])
 
-  function spawnPiece(game: Engine) {
+  const spawnPiece = useCallback((game: Engine) => {
     const type = game.next
     const definition = PIECES[type]
     game.current = {
@@ -173,9 +173,9 @@ function TetrisGame() {
     }
     game.next = takeType(game)
     if (collides(game, game.current.shape, game.current.x, game.current.y)) setStatus('gameover')
-  }
+  }, [collides, takeType])
 
-  function lockPiece(game: Engine) {
+  const lockPiece = useCallback((game: Engine) => {
     game.current.shape.forEach((row, rowIndex) => row.forEach((cell, columnIndex) => {
       if (cell && game.current.y + rowIndex >= 0) {
         game.board[game.current.y + rowIndex][game.current.x + columnIndex] = game.current.color
@@ -201,9 +201,9 @@ function TetrisGame() {
     setLines(game.lines)
     setLevel(game.level)
     spawnPiece(game)
-  }
+  }, [spawnPiece])
 
-  function movePiece(offsetX: number, offsetY: number) {
+  const movePiece = useCallback((offsetX: number, offsetY: number) => {
     const game = engine.current
     if (!game) return false
     if (collides(game, game.current.shape, game.current.x + offsetX, game.current.y + offsetY)) {
@@ -213,9 +213,9 @@ function TetrisGame() {
     game.current.x += offsetX
     game.current.y += offsetY
     return true
-  }
+  }, [collides, lockPiece])
 
-  function performAction(action: Action) {
+  const performAction = useCallback((action: Action) => {
     if (status !== 'running' || !engine.current) return
     const game = engine.current
     if (action === 'left') movePiece(-1, 0)
@@ -245,7 +245,7 @@ function TetrisGame() {
       lockPiece(game)
     }
     draw()
-  }
+  }, [collides, draw, lockPiece, movePiece, status])
 
   function resetGame(start = true) {
     const bag = shuffledBag()
@@ -280,7 +280,7 @@ function TetrisGame() {
 
   useEffect(() => {
     draw()
-  }, [])
+  }, [draw])
 
   useEffect(() => {
     if (status !== 'running') {
@@ -310,7 +310,7 @@ function TetrisGame() {
 
     frame = requestAnimationFrame(update)
     return () => cancelAnimationFrame(frame)
-  }, [status])
+  }, [draw, movePiece, status])
 
   useEffect(() => {
     if (status !== 'running') return
@@ -341,7 +341,7 @@ function TetrisGame() {
       document.removeEventListener('keydown', onKeyDown)
       document.removeEventListener('visibilitychange', onVisibilityChange)
     }
-  }, [status])
+  }, [performAction, status])
 
   const overlayTitle = status === 'paused' ? 'PAUSA' : status === 'gameover' ? 'FIN DEL JUEGO' : 'TETRIS'
   const overlayMessage = status === 'paused'

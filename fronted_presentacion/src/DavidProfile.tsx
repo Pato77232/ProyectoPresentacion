@@ -61,7 +61,7 @@ function DavidProfile() {
 
       <nav className="site-nav">
         <div className="container nav-inner">
-          <a href="/fronted_presentacion/index.html" className="nav-back"><span className="nav-back-arrow" aria-hidden="true">←</span> Volver al equipo</a>
+          <a href="/" className="nav-back"><span className="nav-back-arrow" aria-hidden="true">←</span> Volver al equipo</a>
           <span className="nav-team">Backyardigans</span>
         </div>
       </nav>

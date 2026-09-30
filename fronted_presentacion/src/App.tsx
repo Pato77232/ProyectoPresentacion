@@ -9,13 +9,13 @@ import EdwinProfile from './EdwinProfile'
 import DavidProfile from './DavidProfile'
 import PabloProfile from './PabloProfile'
 import ShirleyProfile from './ShirleyProfile'
-import LeslieProfile from './LeslieProfile';
+import LeslieProfile from './LeslieProfile'
 import './App.css'
 
 const members = [
   { id: 'shirley', name: 'Shirley Amaguaña', alias: 'Tasha', role: 'La Diseñadora', image: shirleyImage, profile: '#perfil-shirley' },
   { id: 'edwin', name: 'Edwin Caraguay', alias: 'Tyrone', role: 'El Proyectado', image: edwinImage, profile: '#perfil-edwin' },
-  { id: 'leslie', name: 'Leslie Coello', alias: 'Uniqua', role: 'La Pulga', image: leslieImage, profile: '/integrantes/Leslie.html' },
+  { id: 'leslie', name: 'Leslie Coello', alias: 'Uniqua', role: 'La Pulga', image: leslieImage, profile: '#perfil-leslie' },
   { id: 'david', name: 'David Cuenca', alias: 'Austin', role: 'Programador Profesional', image: davidImage, profile: '#perfil-david' },
   { id: 'pablo', name: 'Pablo Toapanta', alias: 'Pablo', role: 'El Líder', image: pabloImage, profile: '#perfil-pablo' },
 ]
@@ -48,11 +48,9 @@ function App() {
 
   if (profileRoute === '#perfil-shirley') return <ShirleyProfile />
   if (profileRoute === '#perfil-edwin') return <EdwinProfile />
+  if (profileRoute === '#perfil-leslie') return <LeslieProfile />
   if (profileRoute === '#perfil-david') return <DavidProfile />
   if (profileRoute === '#perfil-pablo') return <PabloProfile />
-  if (profileRoute === 'perfil-edwin') return <EdwinProfile />
-  if (profileRoute === 'perfil-pablo') return <PabloProfile />
-  if (profileRoute === 'perfil-leslie') return <LeslieProfile />
 
   return (
     <>

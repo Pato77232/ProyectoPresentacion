@@ -52,7 +52,7 @@ function PabloProfile() {
   return (
     <div className="pablo-page">
       <nav className="pablo-nav" aria-label="Navegación del perfil">
-        <a href="/fronted_presentacion/" className="pablo-back"><span aria-hidden="true">←</span> Volver al equipo</a>
+        <a href="/" className="pablo-back"><span aria-hidden="true">←</span> Volver al equipo</a>
         <span>LOS BACKYARDIGANS <span aria-hidden="true">/</span> PERFIL</span>
       </nav>
 

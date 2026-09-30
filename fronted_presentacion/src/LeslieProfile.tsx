@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import leslieImage from '../../images/leslie.png'
+import LeslieFair from './LeslieFair'
 import './LeslieProfile.css'
 
 interface LeslieProfileData {
@@ -8,9 +9,9 @@ interface LeslieProfileData {
   age: number
   role: string
   course: string
-  location: string
-  email: string
-  phone: string
+  location?: string
+  email?: string
+  phone?: string
   summary: string
   about: string
   interests: string[]
@@ -51,7 +52,7 @@ function LeslieProfile() {
   return (
     <div className="leslie-page">
       <nav className="leslie-nav" aria-label="Navegación del perfil">
-        <a href="/fronted_presentacion/" className="leslie-back">
+        <a href="/" className="leslie-back">
           <span aria-hidden="true">←</span> Volver al equipo
         </a>
         <span>LOS BACKYARDIGANS <span aria-hidden="true">/</span> PERFIL</span>
@@ -96,14 +97,14 @@ function LeslieProfile() {
             <dl className="leslie-facts">
               <div><dt>Edad</dt><dd>{profile.age} años</dd></div>
               <div><dt>Carrera</dt><dd>{profile.course}</dd></div>
-              <div><dt>Origen</dt><dd>{profile.location}</dd></div>
-              <div>
+              {profile.location && <div><dt>Origen</dt><dd>{profile.location}</dd></div>}
+              {(profile.email || profile.phone) && <div>
                 <dt>Contacto</dt>
                 <dd>
-                  <a href={`mailto:${profile.email}`}>{profile.email}</a>
-                  <a href={`tel:${profile.phone.replaceAll(' ', '')}`}>{profile.phone}</a>
+                  {profile.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}
+                  {profile.phone && <a href={`tel:${profile.phone.replaceAll(' ', '')}`}>{profile.phone}</a>}
                 </dd>
-              </div>
+              </div>}
             </dl>
           </section>
 
@@ -120,6 +121,8 @@ function LeslieProfile() {
               ))}
             </div>
           </section>
+
+          <LeslieFair />
         </main>
       )}
 

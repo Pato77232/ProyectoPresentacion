@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Edwin Caraguay · Integrante del equipo — Manejo y Configuración de Software" />
+  <title>Edwin Caraguay · Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos específicos en tonos naranjas -->
+  <link rel="stylesheet" href="../css/edwin-caraguay.css" />
+</head>
+
+<body>
+
+  <!-- Fondo decorativo compartido -->
+  <div id="orbField" class="orb-field" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- Nav eliminado: la página se muestra como subpágina individual -->
+
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="section hero">
+      <div class="container hero-grid">
+
+        <div class="hero-text">
+          <p class="badge">🟠 ¡Hola! Soy Edwin, listo para proyectos</p>
+
+          <h1 class="hero-title">
+            Hola, soy<br />
+            <span class="text-gradient">Edwin Caraguay</span>
+          </h1>
+
+          <p class="hero-desc">
+            Integrante del equipo "Los Backyardigans" · Manejo y Configuración de Software.
+            Me interesa la administración de sistemas, automatización y seguridad básica.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#minijuego" class="btn btn-primary shine-btn">
+              <span class="btn-emoji">♟️</span> Jugar Ajedrez
+            </a>
+            <div class="socials">
+              <a href="#" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn">🐙</a>
+              <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn">💼</a>
+              <a href="mailto:edwin@ejemplo.com" aria-label="Correo" class="social-btn">✉️</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="avatar-card glass">
+            <div class="avatar-glow"></div>
+            <div class="avatar-frame">
+              <img src="../images/EdwinFoto.jpeg" alt="Foto de Edwin Caraguay" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:'EC'}))" />
+            </div>
+            <h3 class="avatar-name">Edwin Caraguay</h3>
+            <p class="avatar-role">Manejo y Configuración de Software</p>
+
+            <div class="avatar-stats">
+              <div><strong>20</strong><span>Años</span></div>
+              <div><strong>Integrante</strong><span>Equipo</span></div>
+              <div><strong>Automatización</strong><span>Interés</span></div>
+            </div>
+            <div class="mascot-wrap">
+              <img src="../images/Tyrone.jpg" alt="Tyrone mascota" class="mascot" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'mascot-emoji',textContent:'🦌'}))" />
+              <span class="mascot-tag">Tyrone</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Sobre mí</p>
+          <h2>Breve presentación</h2>
+          <p>Intereses, rol en el equipo y tecnologías que empleo.</p>
+        </header>
+
+        <div class="bento-grid">
+          <article class="card glass reveal card-span-2">
+            <div class="card-title">
+              <span class="card-icon icon-orange">🛠️</span>
+              <h3>¿Quién soy?</h3>
+            </div>
+            <p>
+              Soy Estudiante de Ingenieria de Software, me apasiona la tecnología y aunque soy multifacetico estoy sumamente involucrado en la programación y el desarrollo de aplicaciones, trato de mantener un estilo de vida activo que involucre un poco de deporte. Mis intereses principalmente estan en la tecnología y la música, tambien me gusta aprender sobre herramientas que ayuden a complementarme profesionalmente.
+            </p>
+            <div class="chips">
+              <span class="chip chip-orange">Linux</span>
+              <span class="chip chip-blue">Shell</span>
+              <span class="chip chip-green">Redes</span>
+              <span class="chip chip-purple">DevOps</span>
+            </div>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="card-title">
+              <span class="card-icon icon-purple">📍</span>
+              <h3>Datos</h3>
+            </div>
+            <ul class="info-list">
+              <li><span class="li-icon icon-pink">🎂</span><div><span class="li-label">Edad</span><span class="li-value">20 años</span></div></li>
+              <li><span class="li-icon icon-blue">🎓</span><div><span class="li-label">Carrera</span><span class="li-value">Ingeniería de Software</span></div></li>
+              <li><span class="li-icon icon-green">📍</span><div><span class="li-label">Origen</span><span class="li-value">Loja, Ecuador</span></div></li>
+            </ul>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="card-title">
+              <span class="card-icon icon-orange">📬</span>
+              <h3>Contacto</h3>
+            </div>
+            <ul class="info-list">
+              <li><span class="li-icon icon-blue">✉️</span><div><span class="li-label">Correo</span><a href="mailto:ecaraguay7405@uta.edu.ec" class="li-value li-link">ecaraguay7405@uta.edu.ec</a></div></li>
+              <li><span class="li-icon icon-green">📞</span><div><span class="li-label">Teléfono</span><span class="li-value">+593 983 192 516</span></div></li>
+            </ul>
+          </article>
+
+          <article class="card glass reveal card-span-2">
+            <div class="card-title">
+              <span class="card-icon icon-green">🎸</span>
+              <h3>Hobbies</h3>
+            </div>
+            <div class="philosophy-grid">
+              <div class="mini-card glass">
+                <p class="mini-title">Guitarra</p>
+                <p class="mini-text">Toco guitarra en mis ratos libres.</p>
+              </div>
+              <div class="mini-card glass">
+                <p class="mini-title">Videojuegos</p>
+                <p class="mini-text">Me gusta jugar y aprender diseño de juegos.</p>
+              </div>
+              <div class="mini-card glass">
+                <p class="mini-title">Entretenimiento</p>
+                <p class="mini-text">Películas y series para desconectar.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINIJUEGO: AJEDREZ (mantener funcionalidad existente) -->
+    <section id="minijuego" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow eyebrow-orange">Mini-juego</p>
+          <h2>Ajedrez</h2>
+          <p>Selecciona una pieza y luego la casilla a la que quieres moverla.</p>
+        </header>
+
+        <div class="game__layout reveal">
+          <div id="chessBoard" class="chess-board" role="grid" aria-label="Tablero de ajedrez"></div>
+          <div class="game__panel">
+            <p class="game__status" id="gameStatus">Turno: blancas</p>
+            <button class="game__reset btn btn-ghost" id="resetButton" type="button">Reiniciar partida</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-made">Hecho con <span class="footer-heart">🧡</span> por <span class="footer-name">Edwin Caraguay</span></p>
+      <p class="footer-copy">© 2026 · Ingeniería de Software · UTA</p>
+      <a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a>
+    </div>
+  </footer>
+
+  <script src="../script/edwin-caraguay.js"></script>
+</body>
+</html>

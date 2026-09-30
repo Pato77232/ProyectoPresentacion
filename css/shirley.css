@@ -1,0 +1,412 @@
+/* RESET & FONDO AMARILLO TIPO TASHA */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+    background-color: #FFF6DD;
+    background-image: radial-gradient(#FFDF00 18%, transparent 19%);
+    background-size: 32px 32px;
+    color: #4A2A1F;
+}
+
+/* ENCABEZADO SIN TEXTO "PORTAFOLIO PERSONAL" */
+header.top {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #D62828;
+    color: white;
+    padding: 15px 5vw;
+    border-bottom: 5px solid #FFCC00;
+    box-shadow: 0 4px 0px #4A2A1F;
+}
+
+header.top a.volver {
+    text-decoration: none;
+    color: white;
+    background-color: #B31E1E;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    border: 2px solid #FFCC00;
+    box-shadow: 3px 3px 0px #4A2A1F;
+    transition: transform 0.15s;
+}
+
+header.top a.volver:hover {
+    transform: scale(1.05);
+}
+
+/* MAIN CONTAINER */
+main {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+/* HÉROE Y TARJETA */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 800px) {
+    .hero {
+        grid-template-columns: 1.4fr 1fr;
+    }
+}
+
+.titulo {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin: 0 0 10px;
+    color: #4A2A1F;
+}
+
+.gradient-text {
+    color: #D62828;
+    text-shadow: 2px 2px 0px #FFCC00;
+}
+
+.rol {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #E65100;
+    margin-bottom: 15px;
+}
+
+.bio {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-juego {
+    display: inline-block;
+    background-color: #FFCC00;
+    color: #4A2A1F;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 3px solid #4A2A1F;
+    box-shadow: 4px 4px 0px #D62828;
+    transition: transform 0.2s;
+}
+
+.btn-juego:hover {
+    transform: translateY(-3px);
+}
+
+/* TARJETA DE PERFIL (DERECHA) - FOTO MÁS GRANDE */
+.profile-card {
+    background-color: #FFF;
+    border: 4px solid #4A2A1F;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 8px 8px 0px #FFCC00;
+    position: relative;
+}
+
+.grupo-retrato {
+    position: relative;
+    width: 180px; /* Foto más grande */
+    height: 180px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 5px solid #D62828;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #FFDF00;
+}
+
+.imagen-retrato {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.imagen-real {
+    object-fit: cover;
+    opacity: 1;
+    z-index: 1;
+}
+
+.imagen-tasha {
+    object-fit: contain;
+    padding: 10px;
+    background-color: #FFDF00;
+    opacity: 0;
+    z-index: 2;
+}
+
+.grupo-retrato:hover .imagen-tasha { opacity: 1; }
+.grupo-retrato:hover .imagen-real { opacity: 0; }
+
+.profile-name {
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+    color: #D62828;
+}
+
+.profile-role {
+    margin: 0 0 20px;
+    font-weight: 700;
+    color: #7A5343;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #FFF6DD;
+    padding: 12px;
+    border-radius: 18px;
+    border: 2px solid #4A2A1F;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #D62828;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #4A2A1F;
+}
+
+.tasha-tag {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #E65100;
+}
+
+/* SOBRE MÍ Y GUSTOS */
+.sobre-mi {
+    background-color: #FFF;
+    border: 4px solid #4A2A1F;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 8px 8px 0px #FFCC00;
+    margin-bottom: 50px;
+}
+
+.insignia {
+    display: inline-block;
+    background-color: #FFCC00;
+    color: #4A2A1F;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 2px solid #4A2A1F;
+}
+
+.sobre-mi h2 {
+    font-size: 2rem;
+    color: #D62828;
+    margin: 10px 0 5px;
+}
+
+.seccion-desc {
+    margin-bottom: 25px;
+    color: #7A5343;
+    font-weight: 600;
+}
+
+.grid-gustos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.card-gusto {
+    background-color: #FFF6DD;
+    border: 3px solid #4A2A1F;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 4px 4px 0px #FFCC00;
+    transition: transform 0.2s;
+}
+
+.card-gusto:hover {
+    transform: translateY(-4px);
+}
+
+.card-gusto .icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.card-gusto h3 {
+    margin: 0 0 8px;
+    color: #D62828;
+}
+
+.card-gusto p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.highlight-card {
+    background-color: #FFE8E8;
+    box-shadow: 4px 4px 0px #D62828;
+}
+
+/* SECCIÓN JUEGO BUBBLE SHOOTER */
+.juego {
+    background-color: #FFF;
+    border: 4px solid #4A2A1F;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 8px 8px 0px #FFCC00;
+}
+
+.juego h2 {
+    color: #D62828;
+    margin-top: 0;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.panel-juego {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #FFF6DD;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: 3px solid #4A2A1F;
+}
+
+.marcador {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* CONTROLES DE JUEGO (BOTÓN MÚSICA Y REINICIAR) */
+.controles-juego {
+    display: flex;
+    gap: 10px;
+}
+
+button#btn-musica {
+    background-color: #FFCC00;
+    color: #4A2A1F;
+    border: 3px solid #4A2A1F;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #4A2A1F;
+    transition: transform 0.15s;
+}
+
+button#btn-musica:hover {
+    transform: scale(1.05);
+}
+
+button#reiniciar {
+    background-color: #D62828;
+    color: white;
+    border: 3px solid #4A2A1F;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #4A2A1F;
+    transition: transform 0.15s;
+}
+
+button#reiniciar:hover {
+    transform: scale(1.05);
+}
+
+/* ESTRUCTURA DEL TABLERO DE JUEGO */
+.juego-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#gameCanvas {
+    background-color: #FFFDF0;
+    border: 4px solid #4A2A1F;
+    border-radius: 20px;
+    cursor: crosshair;
+    box-shadow: 4px 4px 0px #FFCC00;
+}
+
+/* PERSONAJE ACTIVO (SIN CÍRCULO Y IMAGEN MUCHO MÁS GRANDE) */
+.personaje-display {
+    background-color: #FFF6DD;
+    border: 3px solid #4A2A1F;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 210px;
+    box-shadow: 4px 4px 0px #D62828;
+}
+
+.personaje-display h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: #4A2A1F;
+}
+
+.avatar-box {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 1;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent; /* Sin fondo blanco */
+    border: none;             /* Sin círculo/borde */
+}
+
+.avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Se muestra la imagen completa sin recortes ni círculos */
+}
+
+.nombre-char {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #D62828;
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 700;
+    color: #7A5343;
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="Portafolio personal de David Cuenca, estudiante de Ingeniería de Software. Inspirado en Austin de los Backyardigans." />
+  <title>David Cuenca · Portfolio</title>
+
+  <!-- ============ FUENTES (Google Fonts) ============ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ============ ESTILOS ============ -->
+  <link rel="stylesheet" href="../css/David.css" />
+</head>
+
+<body>
+
+  <!-- ================= FONDO: ORBES + REJILLA ================= -->
+  <div id="orbField" class="orb-field" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- ================= NAV: volver al equipo ================= -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-back"><span class="nav-back-arrow">←</span> Volver al equipo</a>
+      <span class="nav-team">Backyardigans</span>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section id="inicio" class="section hero">
+      <div class="container hero-grid">
+
+        <div class="hero-text">
+          <p class="badge">🦘 ¡Hola! Disponible para nuevos proyectos y aprendizaje</p>
+
+          <h1 class="hero-title">
+            Hola, soy<br />
+
+            <span class="text-gradient">David Cuenca</span>
+          </h1>
+
+          <p class="hero-typed">
+            <span class="hero-typed-dash">—</span>
+            <span id="typed"></span><span class="caret" id="caret"></span>
+          </p>
+
+          <p class="hero-desc">
+            Estudiante de Ingeniería de Software, interesado por aprender muchas cosas, 
+            amante de la tecnología y la computación.
+          </p>
+          
+          <div class="hero-actions">
+            <a href="#proyecto" class="btn btn-primary shine-btn">
+              <span class="btn-emoji">🏍️</span> Jugar Moto Extreme
+            </a>
+            <div class="socials">
+              <a href="https://github.com/David22x" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn">🐙</a>
+              <a href="https://www.linkedin.com/in/david-cuenca-9884083b5/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn">💼</a>
+              <a href="https://www.instagram.com/cuenca4786/?hl=en" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn">📷</a>
+              <a href="mailto:dcuenca2872@uta.edu.ec" aria-label="Correo" class="social-btn">✉️</a>
+            </div>
+          </div>
+        </div> 
+
+        <div class="hero-visual">
+          <div class="avatar-card glass">
+            <div class="avatar-glow"></div>
+            <div class="avatar-frame">
+              <img src="../images/fotoDavid.jpeg" alt="Foto de David Cuenca" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:'DC'}))" />
+            </div>
+
+            <h3 class="avatar-name">David Cuenca</h3>
+            <p class="avatar-role">Ingeniería de Software</p>
+
+            <div class="avatar-stats">
+              <div><strong>19</strong><span>Años</span></div>
+              <div><strong>4°</strong><span>Semestre</span></div>
+              <div><strong>∞</strong><span>Curiosidad</span></div>
+            </div>
+
+            <div class="mascot-wrap">
+              <img src="https://static.wikia.nocookie.net/super-fun-favorites/images/2/2e/Austin_from_The_Backyardigans.png/revision/latest/scale-to-width-down/1200?cb=20230115054024" alt="Austin, el canguro de los Backyardigans" class="mascot" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'mascot-emoji',textContent:'🦘'}))" />
+              <span class="mascot-tag">Mi representación 🟣</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SOBRE MÍ (BENTO) ================= -->
+    <section id="sobre-mi" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Sobre mí</p>
+          <h2>Un poco de mi historia</h2>
+          <p>Datos, contacto y hobbies.</p>
+        </header>
+
+        <div class="bento-grid">
+
+          <article class="card glass card-span-2">
+            <div class="card-title">
+              <span class="card-icon icon-blue">👤</span>
+              <h3>¿Quién soy?</h3>
+            </div>
+
+            <p>
+              Soy estudiante de <strong>Ingeniería de Software</strong>. Me gusta mucho 
+              la tecnologia y todo lo relacionado con la programación. Además disfruto 
+              mucho aprender nuevas temas. Por otra parte, trato te mantenerme saludable 
+              y activo realizando actividad física y ejercicios que involucren a mi cerebro.
+            </p>
+            <p>
+              Estoy interesado en aprender nuevas tecnologías y herramientas que me permitan crecer
+              profesionalmente y poder aportar a la sociedad con mis conocimientos.
+            </p>
+
+            <div class="chips">
+              <span class="chip chip-blue">Desarrollo Web</span>
+              <span class="chip chip-purple">JavaScript</span>
+              <span class="chip chip-pink">Videojuegos 2D</span>
+              <span class="chip chip-green">Lógica de Programación</span>
+              <span class="chip chip-orange">Trabajo en Equipo</span>
+            </div>
+          </article>
+
+          <article class="card glass">
+            <div class="card-title">
+              <span class="card-icon icon-purple">🧾</span>
+              <h3>Datos personales</h3>
+            </div>
+
+            <ul class="info-list">
+              <li><span class="li-icon icon-pink">🎂</span><div><span class="li-label">Edad</span><span class="li-value">19 años</span></div></li>
+              <li><span class="li-icon icon-blue">🎓</span><div><span class="li-label">Carrera</span><span class="li-value">Ingeniería de Software</span></div></li>
+              <li><span class="li-icon icon-green">📍</span><div><span class="li-label">Ubicación</span><span class="li-value">Ambato, Ecuador</span></div></li>
+              <li><span class="li-icon icon-orange">🏛️</span><div><span class="li-label">Universidad</span><span class="li-value">UTA · FISEI</span></div></li>
+            </ul>            
+          </article>
+
+          <article class="card glass">
+            <div class="card-title">
+              <span class="card-icon icon-orange">📬</span>
+              <h3>Contacto</h3>
+            </div>
+
+            <ul class="info-list">
+              <li><span class="li-icon icon-blue">✉️</span><div><span class="li-label">Correo</span><a href="mailto:tuemail@ejemplo.com" class="li-value li-link">dcuenca2872@uta.edu.ec</a></div></li>
+              <li><span class="li-icon icon-green">📞</span><div><span class="li-label">Teléfono</span><span class="li-value">+593 992952521</span></div></li>
+              <li><span class="li-icon icon-pink">🌐</span><div><span class="li-label">Idiomas</span><span class="li-value">Español (nativo) · Inglés (técnico)</span></div></li>
+            </ul>
+          </article>
+
+          <article class="card glass card-span-2">
+            <div class="card-title">
+              <span class="card-icon icon-green">💜</span>
+              <h3>Hobbies</h3>
+            </div>
+            <div class="philosophy-grid">
+              <div class="mini-card glass">
+                <span class="mini-icon icon-blue">🏋️</span>
+                <p class="mini-title">Deporte</p>
+                <p class="mini-text">Mantener mi cuerpo y mente en forma.</p>
+              </div>
+              <div class="mini-card glass">
+                <span class="mini-icon icon-purple">🎬</span>
+                <p class="mini-title">Entretenimiento</p>
+                <p class="mini-text">Disfruto de las películas y series.</p>
+              </div>
+              <div class="mini-card glass">
+                <span class="mini-icon icon-pink">💻</span>
+                <p class="mini-title">Programación</p>
+                <p class="mini-text">Mantengo mi mente activa y aprendiendo constantemente.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-made">
+        Hecho con <span class="footer-heart">💜</span> por
+        <span class="footer-name">David Cuenca</span>
+      </p>
+      <p class="footer-copy">© 2026 · Ingeniería de Software · UTA</p>
+      <a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>

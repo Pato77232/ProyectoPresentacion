@@ -8,12 +8,9 @@ Este documento describe cómo colaborar en el repositorio del proyecto "Los Back
 git clone https://github.com/Pato77232/ProyectoPresentacion.git
 cd ProyectoPresentacion
 
-text
 2. Cambia a `develop` y actualízala:
 git checkout develop
 git pull origin develop
-
-text
 
 ## Ramas GitFlow
 
